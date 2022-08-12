@@ -133,7 +133,7 @@ public class register {
 
     }
     public static String checkAvailable(String input) throws IOException {
-        String fileName = "userdata.csv";
+        String fileName = "userdata.txt";
         File file = new File(fileName);
         FileReader fr;
         try {
