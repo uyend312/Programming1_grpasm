@@ -1,14 +1,19 @@
 import java.util.*;
-import java.util.ArrayList;
 import java.io.*;
 public class Products {
-    final static String outputFilePath
-            = "Products.txt";
+    private String id;
     private String category;
     private String name;
-    private String stock;
+    private String quantity;
     private String price;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getCategory() {
         return category;
@@ -26,12 +31,12 @@ public class Products {
         this.name = name;
     }
 
-    public String getStock() {
-        return stock;
+    public String getQuantity() {
+        return quantity;
     }
 
-    public void setStock(String stock) {
-        this.stock = stock;
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 
     public String getPrice() {
@@ -42,96 +47,57 @@ public class Products {
         this.price = price;
     }
 
-    public Products(){
-        this.category = "Default";
-        this.name = "Default";
-        this.stock = "Default";
-        this.price = "Default";
-    }
-    public Products( String category, String name, String stock, String price) {
+
+    public Products(String id, String category, String name, String quantity, String price) {
+        this.id = id;
         this.category = category;
         this.name = name;
-        this.stock = stock;
+        this.quantity = quantity;
         this.price = price;
 
     }
 
     public void addProduct() {
-        HashMap<Integer, List<String>> products = new HashMap<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("How many products do you want to add?");
-        int id = sc.nextInt();
-        for (int i = 1; i <= id; i++) {
-            List<String> editProduct = products.get(i);
+        int exit = 1;
+        while(exit!=0) {
+            System.out.println("Enter id of product:");
+            id = sc.next();
             System.out.println("Enter category:");
             category = sc.next();
             System.out.println("Enter name:");
             name = sc.next();
-            System.out.println("Enter stock:");
-            stock = sc.next();
+            System.out.println("Enter quantity:");
+            quantity = sc.next();
             System.out.println("Enter price:");
             price = sc.next();
-            if (editProduct == null) {
-                editProduct = new ArrayList<String>();
-                editProduct.add(category);
-                editProduct.add(name);
-                editProduct.add(stock);
-                editProduct.add(price);
-                products.put(i, editProduct);
-            } else {
-                System.out.println("You typed this already!");
+
+            try{
+                File f = new File("Products.txt");
+                PrintWriter pw = new PrintWriter(new FileOutputStream(f, true));
+                pw.append("\n"+id+","+category+","+name+","+quantity+","+price);
+                pw.close();
             }
+            catch(Exception e){}
+            System.out.println("Do you want to add more products to the storage?(Yes:1/No:0)");
+            exit = sc.nextInt();
         }
-        System.out.println(products);
-        //write to a file
-        File file = new File(outputFilePath);
 
-        BufferedWriter bf = null;
-
-        try {
-
-            // create new BufferedWriter for the output file
-            bf = new BufferedWriter(new FileWriter(file));
-
-            // iterate map entries
-            for (Map.Entry<Integer, List<String>> entry :
-                    products.entrySet()) {
-
-                // put key and value separated by a colon
-                bf.write(entry.getKey() + ":"
-                        + entry.getValue());
-
-                // new line
-                bf.newLine();
-            }
-
-            bf.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-
-            try {
-
-                // always close the writer
-                bf.close();
-            } catch (Exception e) {
-            }
-        }
     }
-    public void showProduct() throws Exception{
-        File file = new File(
-                "Products.txt");
-
-        BufferedReader br
-                = new BufferedReader(new FileReader(file));
-
-        // Declaring a string variable
-        String st;
-        // Condition holds true till
-        // there is character in a string
-        while ((st = br.readLine()) != null)
-
-            // Print the string
-            System.out.println(st);
+    public void showProduct() {
+        try
+        {
+            BufferedReader br = new BufferedReader(new FileReader("Products.txt"));
+            String s = "";
+            while ((s = br.readLine()) != null) {
+                String data[] = new String[5];
+                data = s.split(",");
+                for (int i = 0; i < 5; i++) {
+                    System.out.println(data[i] + " ");
+                }
+                System.out.println();
+            }
+        }
+        catch(Exception e){}
     }
 }
