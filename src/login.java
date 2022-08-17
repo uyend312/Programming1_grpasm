@@ -4,6 +4,10 @@ public class login {
     private String userEmail;
     private String userPassword;
 
+    public login() {
+
+    }
+
     public String getUserEmail() {
         return userEmail;
     }
@@ -20,27 +24,29 @@ public class login {
         this.userPassword = userPassword;
     }
 
+
     public login(String userEmail, String userPassword) {
         this.userEmail = userEmail;
         this.userPassword = userPassword;
     }
 
     public static void customerLogin() throws IOException {
+        login lg = new login();
         System.out.println("Enter email");
         Scanner scanner = new Scanner(System.in);
-        String userEmail = scanner.nextLine();
-        userEmail = register.checkEmailSyntax(userEmail);
+        lg.setUserEmail(scanner.nextLine());
+        lg.setUserEmail(register.checkEmailSyntax(lg.getUserEmail()));
 
         System.out.println("Enter password");
-        String userPassword = scanner.nextLine();
+        lg.setUserPassword(scanner.nextLine());
 
 
-        checkLogin(userEmail, userPassword);
+        checkLogin(lg.getUserEmail(),lg.getUserPassword());
 
-
-        //check availability for user email and password
     }
-    public static String checkLogin(String userEmail, String userPassword) throws IOException {
+
+    //method
+    public static void checkLogin(String userEmail, String userPassword) throws IOException {
         String line;
         String[] data;
 
@@ -63,27 +69,22 @@ public class login {
                             break;
                         // Go to the main order page
                         case ("2"):
-                            //
+                            // register.userRegister();
 
                             break;
                         default:
                             System.out.println("Invalid input");
 
-
-
-
-
                     }
 
-                    return userEmail;
+                    return;
                 }
             }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Login failed, try again");
+        System.out.println("Login failed, invalid user-email or password, try again");
         customerLogin();
-        return userEmail;
 
     }
 }
