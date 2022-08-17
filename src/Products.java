@@ -186,9 +186,9 @@ public class Products {
         catch(Exception e) {}
     }
     public void deleteProduct(){
-        System.out.println("Enter the ID of product that you want to delete.....");
+        System.out.println("Enter the name of product that you want to delete.....");
         Scanner sc=new Scanner(System.in);
-        int id_to_change=sc.nextInt();
+        String name_to_change=sc.next();
         try {
             File inputFile = new File("Products.txt");
             File tempFile = new File("myTempFile.txt");
@@ -198,8 +198,10 @@ public class Products {
             String s;
             while((s=reader.readLine())!=null) {
                 String data[] = s.split(",");
-                String id = data[0];
-                if (!id.equals(id_to_change));
+                String name = data[2];
+                if (!name.equals(name_to_change)){
+                    writer.write(s + "\n");
+                }
             }
             writer.close();
             reader.close();
@@ -208,4 +210,5 @@ public class Products {
         }
         catch(Exception e) {}
     }
+
 }
