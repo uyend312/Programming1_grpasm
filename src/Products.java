@@ -202,6 +202,7 @@ public class Products {
             while((s=reader.readLine())!=null) {
                 String data[] = s.split(",");
                 String name = data[2];
+                //Only write to new file where the name does not match the input name
                 if (!name.equals(name_to_change)){
                     writer.write(s + "\n");
                 }
@@ -235,6 +236,7 @@ public class Products {
                     found = true;
                 }
             }
+            reader.close();
             //if found is still false then category unavailable
             if(!found){
                 System.out.println("No records found");
