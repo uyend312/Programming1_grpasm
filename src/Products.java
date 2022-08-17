@@ -3,6 +3,7 @@ import java.io.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
 public class Products {
     private String id;
     private String category;
@@ -209,6 +210,45 @@ public class Products {
             tempFile.renameTo(inputFile);
         }
         catch(Exception e) {}
+    }
+    public void showProductByCategory(){
+        ArrayList<String> records = new ArrayList<>();
+        boolean found = false;
+        String record;
+        System.out.println("Please enter the category of product that you want to see...");
+        Scanner sc =new Scanner(System.in);
+        String searchCategory= sc.next();
+        try{
+            Scanner x;
+            x = new Scanner(new File("Products.txt"));
+            x.useDelimiter("[,\n]");
+
+            while(x.hasNext()){
+                category = x.next();
+                if (category.equals(searchCategory)) {
+                    id = x.next();
+                    category = x.next();
+                    name = x.next();
+                    quantity = x.next();
+                    price = x.next();
+                    record = id + "," + category + "," + name + "," + quantity + "," + price;
+                    records.add(record);
+                    found = true;
+                }
+                else{
+                    x.next();
+                    x.next();
+                }
+            }
+            if(!found){
+                System.out.println("No records found");
+            }
+
+        }
+        catch(Exception e) {}
+        for(String str: records){
+            System.out.println(str);
+        }
     }
 
 }
