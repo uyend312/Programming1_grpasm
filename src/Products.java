@@ -184,7 +184,9 @@ public class Products {
             pw.print(sb.toString());
             pw.close();
         }
-        catch(Exception e) {}
+        catch(Exception e) {
+            System.out.println(e);
+        }
     }
     public void deleteProduct(){
         System.out.println("Enter the name of product that you want to delete.....");
@@ -209,43 +211,39 @@ public class Products {
             inputFile.delete();
             tempFile.renameTo(inputFile);
         }
-        catch(Exception e) {}
+        catch(Exception e) {
+            System.out.println(e);
+        }
     }
     public void showProductByCategory(){
         ArrayList<String> records = new ArrayList<>();
+        //create a boolean variable to confirm if the category is available or not
         boolean found = false;
-        String record;
         System.out.println("Please enter the category of product that you want to see...");
         Scanner sc =new Scanner(System.in);
         String searchCategory= sc.next();
         try{
-            Scanner x;
-            x = new Scanner(new File("Products.txt"));
-            x.useDelimiter("[,\n]");
-
-            while(x.hasNext()){
-                category = x.next();
-                if (category.equals(searchCategory)) {
-                    id = x.next();
-                    category = x.next();
-                    name = x.next();
-                    quantity = x.next();
-                    price = x.next();
-                    record = id + "," + category + "," + name + "," + quantity + "," + price;
-                    records.add(record);
+            BufferedReader reader = new BufferedReader(new FileReader("Products.txt"));
+            String s;
+            //Read each line in the Products.txt file
+            while((s=reader.readLine())!=null) {
+                String data[] = s.split(",");
+                String category = data[1];
+                //add that line to Arraylist if the category matches
+                if (category.equals(searchCategory)){
+                    records.add(s);
                     found = true;
                 }
-                else{
-                    x.next();
-                    x.next();
-                }
             }
+            //if found is still false then category unavailable
             if(!found){
                 System.out.println("No records found");
             }
 
         }
-        catch(Exception e) {}
+        catch(Exception e) {
+            System.out.println(e);
+        }
         for(String str: records){
             System.out.println(str);
         }
