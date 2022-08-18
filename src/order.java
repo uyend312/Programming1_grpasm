@@ -49,4 +49,10 @@ public class order {
             this.quantity = quantity;
         }
 
+        public static String generateUID() {    
+            UUID uuid = UUID.randomUUID();
+            // String uID = uuid.toString();
+            return uuid.toString();
+        }
+
 }
