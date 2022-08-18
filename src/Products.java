@@ -1,11 +1,4 @@
-import java.util.*;
-import java.io.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Collections;
+
 public class Products {
     private int id;
     private String category;
