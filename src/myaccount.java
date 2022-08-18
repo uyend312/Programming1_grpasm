@@ -20,14 +20,14 @@ public class myaccount {
             BufferedReader br = new BufferedReader(fr);
             while ((line = br.readLine()) != null) {
                 data = line.split(",");
-                if (userEmail.equals(data[2])) {
+                if (userEmail.equals(data[3])) {
                     data = line.split(",");
                     System.out.println("<--------------Your Account information-------------->");
-                    System.out.println("ID: " + data[5]);
-                    System.out.println("First name: " + data[0]);
-                    System.out.println("Last name: " + data[1]);
-                    System.out.println("Email: " + data[2]);
-                    System.out.println("Level of member: " + data[4]);
+                    System.out.println("ID: " + data[0]);
+                    System.out.println("First name: " + data[1]);
+                    System.out.println("Last name: " + data[2]);
+                    System.out.println("Email: " + data[3]);
+                    System.out.println("Level of member: " + data[5]);
                 }
 
             }

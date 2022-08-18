@@ -108,13 +108,15 @@ public class register {
                  BufferedWriter bw = new BufferedWriter(fw);
                  PrintWriter pw = new PrintWriter(bw)) {
 
-                pw.println(rgs.getFirstName() + "," + rgs.getLastName() + "," + rgs.getUserEmail() + "," + rgs.getUserPassword() + "," + rgs.getUserStatus() + "," + rgs.getUserID());
+                pw.println(rgs.getUserID()+","+rgs.getFirstName() + "," + rgs.getLastName() + "," + rgs.getUserEmail() + "," + rgs.getUserPassword() + "," + rgs.getUserStatus() );
                 pw.flush();
 
             } catch (IOException e) {
                 System.out.println("Error file cannot found");
             }
             System.out.println("Thank you! You have register to our site");
+            System.out.println("Now you can log in");
+            login.customerLogin();
         } else if (userChoice == 2) {
             System.out.println("Thank you for visiting our site");
         }
@@ -146,7 +148,7 @@ public class register {
         String line;
         while ((line = br.readLine()) != null) {
             String[] values = line.split(",");
-            if (input.equals(values[2]) && !input.isEmpty()) {
+            if (input.equals(values[3]) && !input.isEmpty()) {
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("This email is available, try again");
                 input = scanner.nextLine();
@@ -192,7 +194,7 @@ public class register {
         // String uID = uuid.toString();
         return uuid.toString();
     }
-
+    // membership
     public static String generateStatus(String userStatus) {
         userStatus = "new member";
         //method will be used when judging user level of buying the products

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f88acf8-d63a-4fa4-bea9-da99b818d861" name="Changes" comment="users can view their profile with myaccount.java&#10;- update login.java file (user can choose to review their profile after login)">
+    <list default="true" id="7f88acf8-d63a-4fa4-bea9-da99b818d861" name="Changes" comment="make the codes look cleaner">
+      <change afterPath="$PROJECT_DIR$/src/adminlogin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/adminsite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/myaccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myaccount.java" afterDir="false" />
@@ -81,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660438991473</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="make the codes look cleaner">
+      <created>1660729972288</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1660729972288</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -101,6 +110,7 @@
     <MESSAGE value="change file type" />
     <MESSAGE value="add login.java and login function" />
     <MESSAGE value="users can view their profile with myaccount.java&#10;- update login.java file (user can choose to review their profile after login)" />
-    <option name="LAST_COMMIT_MESSAGE" value="users can view their profile with myaccount.java&#10;- update login.java file (user can choose to review their profile after login)" />
+    <MESSAGE value="make the codes look cleaner" />
+    <option name="LAST_COMMIT_MESSAGE" value="make the codes look cleaner" />
   </component>
 </project>

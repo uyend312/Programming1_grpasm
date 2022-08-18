@@ -43,6 +43,7 @@ public class login {
 
         checkLogin(lg.getUserEmail(),lg.getUserPassword());
 
+
     }
 
     //method
@@ -55,9 +56,9 @@ public class login {
             BufferedReader br = new BufferedReader(fr);
             while ((line = br.readLine()) != null) {
                 data = line.split(",");
-                if (data[2].equals(userEmail) && data[3].equals(userPassword)) {
+                if (data[3].equals(userEmail) && data[4].equals(userPassword)) {
 
-                    System.out.println("Login success, Welcome " + data[0]);
+                    System.out.println("Login success, Welcome " + data[1] +" "+ data[2]);
 
                     System.out.println("Go to your account page, press 1");
                     Scanner scanner = new Scanner(System.in);
@@ -87,6 +88,7 @@ public class login {
         customerLogin();
 
     }
+
 }
 
 
