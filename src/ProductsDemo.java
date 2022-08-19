@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class ProductsDemo implements Serializable{
+public class ProductsDemo {
     public static void main(String args[]) throws Exception {
         int option = -1;
         //s is used for Integer and s1 is for String data
@@ -35,13 +35,14 @@ public class ProductsDemo implements Serializable{
             System.out.println("0.EXIT");
             System.out.println("Enter your option: ");
             option = s.nextInt();
-        } while (option!=0);
             switch (option) {
                 case 1:
                     System.out.println("How many products do you want to add?");
                     int amount = s.nextInt();
                     for (int i = 0; i < amount; i++) {
-                        int id = 100 + i;
+                        System.out.print("Enter Product ID:");
+                        int id = s.nextInt();
+
                         System.out.print("Enter category:");
                         String category = s1.next();
 
@@ -61,7 +62,7 @@ public class ProductsDemo implements Serializable{
                     oos = new ObjectOutputStream(new FileOutputStream(file));
                     oos.writeObject(al);
                     oos.close();
-                    break;
+                break;
                 case 2:
                     if (file.isFile()) {
                         ois = new ObjectInputStream(new FileInputStream(file));
@@ -76,7 +77,7 @@ public class ProductsDemo implements Serializable{
                     } else {
                         System.out.println("File Not Found...!!!");
                     }
-                    break;
+                break;
                 case 3:
                     if (file.isFile()) {
                         ois = new ObjectInputStream(new FileInputStream(file));
@@ -116,7 +117,7 @@ public class ProductsDemo implements Serializable{
                     } else {
                         System.out.println("File Not Found...!!!");
                     }
-                    break;
+                break;
                 case 4:
                     if (file.isFile()) {
                         ois = new ObjectInputStream(new FileInputStream(file));
@@ -140,7 +141,7 @@ public class ProductsDemo implements Serializable{
                     } else {
                         System.out.println("File Not Found...!!!");
                     }
-                    break;
+                break;
                 case 5:
                     if (file.isFile()) {
                         ois = new ObjectInputStream(new FileInputStream(file));
@@ -173,7 +174,7 @@ public class ProductsDemo implements Serializable{
                     } else {
                         System.out.println("File Not Found...!!!");
                     }
-                    break;
+                break;
                 case 6:
                     if (file.isFile()) {
                         ois = new ObjectInputStream(new FileInputStream(file));
@@ -197,7 +198,7 @@ public class ProductsDemo implements Serializable{
                     } else {
                         System.out.println("File Not Found...!!!");
                     }
-                    break;
+                break;
                 case 7:
                     if (file.isFile()) {
                         ois = new ObjectInputStream(new FileInputStream(file));
@@ -225,7 +226,7 @@ public class ProductsDemo implements Serializable{
                     } else {
                         System.out.println("File Not Found...!!!");
                     }
-                    break;
+                break;
                 case 8:
                     if (file.isFile()) {
                         ois = new ObjectInputStream(new FileInputStream(file));
@@ -249,7 +250,7 @@ public class ProductsDemo implements Serializable{
                     } else {
                         System.out.println("File Not Found...!!!");
                     }
-                    break;
+                break;
                 case 9:
                     if (file.isFile()) {
                         ois = new ObjectInputStream(new FileInputStream(file));
@@ -277,7 +278,7 @@ public class ProductsDemo implements Serializable{
                     } else {
                         System.out.println("File Not Found...!!!");
                     }
-                    break;
+                break;
                 case 10:
                     if (file.isFile()) {
                         ois = new ObjectInputStream(new FileInputStream(file));
@@ -301,7 +302,7 @@ public class ProductsDemo implements Serializable{
                     } else {
                         System.out.println("File Not Found...!!!");
                     }
-                    break;
+                break;
                 case 11:
                     if (file.isFile()) {
                         ois = new ObjectInputStream(new FileInputStream(file));
@@ -329,7 +330,8 @@ public class ProductsDemo implements Serializable{
                     } else {
                         System.out.println("File Not Found...!!!");
                     }
-                    break;
+                break;
             }
+        } while (option!=0);
     }
 }

@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public class Products {
+public class Products implements Serializable {
     private int id;
     private String category;
     private String name;

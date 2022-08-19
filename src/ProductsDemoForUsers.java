@@ -29,125 +29,125 @@ public class ProductsDemoForUsers {
             System.out.println("0.EXIT");
             System.out.println("Enter your option: ");
             option = s.nextInt();
-        } while (option!=0);
-        switch (option) {
+            switch (option) {
 
-            case 1:
-                if (file.isFile()) {
-                    ois = new ObjectInputStream(new FileInputStream(file));
-                    al = (ArrayList<Products>) ois.readObject();
-                    ois.close();
-                    System.out.println("_________________________________________________");
-                    //use ListIterator to iterate through the file
-                    li = al.listIterator();
-                    while (li.hasNext())
-                        System.out.println(li.next());
-                    System.out.println("_________________________________________________");
-                } else {
-                    System.out.println("File Not Found...!!!");
-                }
-                break;
-
-            case 2:
-                if (file.isFile()) {
-                    ois = new ObjectInputStream(new FileInputStream(file));
-                    al = (ArrayList<Products>) ois.readObject();
-                    ois.close();
-                    boolean found = false;
-                    System.out.println("Enter Category to Search:");
-                    String category = s1.next();
-                    System.out.println("_________________________________________________");
-                    li = al.listIterator();
-                    while (li.hasNext()) {
-                        Products p = (Products) li.next();
-                        if (p.getCategory() == category) {
-                            System.out.println(p);
-                            found = true;
-                        }
+                case 1:
+                    if (file.isFile()) {
+                        ois = new ObjectInputStream(new FileInputStream(file));
+                        al = (ArrayList<Products>) ois.readObject();
+                        ois.close();
+                        System.out.println("_________________________________________________");
+                        //use ListIterator to iterate through the file
+                        li = al.listIterator();
+                        while (li.hasNext())
+                            System.out.println(li.next());
+                        System.out.println("_________________________________________________");
+                    } else {
+                        System.out.println("File Not Found...!!!");
                     }
-                    if (!found)
-                        System.out.println("Records Not Found..!!!");
-                    System.out.println("_________________________________________________");
-                } else {
-                    System.out.println("File Not Found...!!!");
-                }
-                break;
+                    break;
 
-            case 3:
-                if (file.isFile()) {
-                    ois = new ObjectInputStream(new FileInputStream(file));
-                    al = (ArrayList<Products>) ois.readObject();
-                    ois.close();
-
-                    Collections.sort(al, new Comparator<Products>() {
-                        @Override
-                        public int compare(Products p1, Products p2) {
-
-                            return p1.getPrice()- p2.getPrice();
+                case 2:
+                    if (file.isFile()) {
+                        ois = new ObjectInputStream(new FileInputStream(file));
+                        al = (ArrayList<Products>) ois.readObject();
+                        ois.close();
+                        boolean found = false;
+                        System.out.println("Enter Category to Search:");
+                        String category = s1.next();
+                        System.out.println("_________________________________________________");
+                        li = al.listIterator();
+                        while (li.hasNext()) {
+                            Products p = (Products) li.next();
+                            if (p.getCategory() == category) {
+                                System.out.println(p);
+                                found = true;
+                            }
                         }
-                    });
+                        if (!found)
+                            System.out.println("Records Not Found..!!!");
+                        System.out.println("_________________________________________________");
+                    } else {
+                        System.out.println("File Not Found...!!!");
+                    }
+                    break;
 
-                    System.out.println("_________________________________________________");
-                    //use ListIterator to iterate through the file
-                    li = al.listIterator();
-                    while (li.hasNext())
-                        System.out.println(li.next());
-                    System.out.println("_________________________________________________");
-                } else {
-                    System.out.println("File Not Found...!!!");
-                }
-                break;
+                case 3:
+                    if (file.isFile()) {
+                        ois = new ObjectInputStream(new FileInputStream(file));
+                        al = (ArrayList<Products>) ois.readObject();
+                        ois.close();
 
-            case 4:
-                if (file.isFile()) {
-                    ois = new ObjectInputStream(new FileInputStream(file));
-                    al = (ArrayList<Products>) ois.readObject();
-                    ois.close();
+                        Collections.sort(al, new Comparator<Products>() {
+                            @Override
+                            public int compare(Products p1, Products p2) {
 
-                    Collections.sort(al, new Comparator<Products>() {
-                        @Override
-                        public int compare(Products p1, Products p2) {
+                                return p1.getPrice()- p2.getPrice();
+                            }
+                        });
 
-                            return p1.getId()- p2.getId();
-                        }
-                    });
+                        System.out.println("_________________________________________________");
+                        //use ListIterator to iterate through the file
+                        li = al.listIterator();
+                        while (li.hasNext())
+                            System.out.println(li.next());
+                        System.out.println("_________________________________________________");
+                    } else {
+                        System.out.println("File Not Found...!!!");
+                    }
+                    break;
 
-                    System.out.println("_________________________________________________");
-                    //use ListIterator to iterate through the file
-                    li = al.listIterator();
-                    while (li.hasNext())
-                        System.out.println(li.next());
-                    System.out.println("_________________________________________________");
-                } else {
-                    System.out.println("File Not Found...!!!");
-                }
-                break;
+                case 4:
+                    if (file.isFile()) {
+                        ois = new ObjectInputStream(new FileInputStream(file));
+                        al = (ArrayList<Products>) ois.readObject();
+                        ois.close();
 
-            case 5:
-                if (file.isFile()) {
-                    ois = new ObjectInputStream(new FileInputStream(file));
-                    al = (ArrayList<Products>) ois.readObject();
-                    ois.close();
+                        Collections.sort(al, new Comparator<Products>() {
+                            @Override
+                            public int compare(Products p1, Products p2) {
 
-                    Collections.sort(al, new Comparator<Products>() {
-                        @Override
-                        public int compare(Products p1, Products p2) {
+                                return p1.getId()- p2.getId();
+                            }
+                        });
 
-                            return p1.getQuantity()- p2.getQuantity();
-                        }
-                    });
+                        System.out.println("_________________________________________________");
+                        //use ListIterator to iterate through the file
+                        li = al.listIterator();
+                        while (li.hasNext())
+                            System.out.println(li.next());
+                        System.out.println("_________________________________________________");
+                    } else {
+                        System.out.println("File Not Found...!!!");
+                    }
+                    break;
 
-                    System.out.println("_________________________________________________");
-                    //use ListIterator to iterate through the file
-                    li = al.listIterator();
-                    while (li.hasNext())
-                        System.out.println(li.next());
-                    System.out.println("_________________________________________________");
-                } else {
-                    System.out.println("File Not Found...!!!");
-                }
-                break;
+                case 5:
+                    if (file.isFile()) {
+                        ois = new ObjectInputStream(new FileInputStream(file));
+                        al = (ArrayList<Products>) ois.readObject();
+                        ois.close();
 
-        }
+                        Collections.sort(al, new Comparator<Products>() {
+                            @Override
+                            public int compare(Products p1, Products p2) {
+
+                                return p1.getQuantity()- p2.getQuantity();
+                            }
+                        });
+
+                        System.out.println("_________________________________________________");
+                        //use ListIterator to iterate through the file
+                        li = al.listIterator();
+                        while (li.hasNext())
+                            System.out.println(li.next());
+                        System.out.println("_________________________________________________");
+                    } else {
+                        System.out.println("File Not Found...!!!");
+                    }
+                    break;
+
+            }
+        } while (option!=0);
     }
 }
