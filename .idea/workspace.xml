@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7f88acf8-d63a-4fa4-bea9-da99b818d861" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Products.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Products.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Products.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductsDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductsDemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ProductsDemoForUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProductsDemoForUsers.java" afterDir="false" />
     </list>
@@ -63,13 +66,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ProductsDemoForUsers" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ProductsDemoForUsers" />
+      <module name="Programming1_grpasm" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="Application.ProductsDemoForUsers" />
       <item itemvalue="Application.ProductsDemo" />
       <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ProductsDemo" />
+        <item itemvalue="Application.ProductsDemoForUsers" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -95,5 +107,19 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.io.NotSerializableException" package="java.io" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.io.WriteAbortedException" package="java.io" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

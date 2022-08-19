@@ -1,23 +1,25 @@
 import java.io.*;
 import java.util.*;
 
-public class ProductsDemo {
+ public class ProductsDemo{
+
     public static void main(String args[]) throws Exception {
-        int option = -1;
+        int option;
         //s is used for Integer and s1 is for String data
         Scanner s = new Scanner(System.in);
         Scanner s1 = new Scanner(System.in);
         File file = new File("Products.txt");
         ArrayList<Products> al = new ArrayList<>();
-        ObjectOutputStream oos = null;
-        ObjectInputStream ois = null;
-        ListIterator li = null;
+        ObjectOutputStream oos;
+        ObjectInputStream ois;
+        ListIterator<Products> li;
 
         //check for existing file to load data to arraylist
         if (file.isFile()) {
             ois = new ObjectInputStream(new FileInputStream(file));
-            al = (ArrayList<Products>) ois.readObject();
+            al =(ArrayList<Products>) ois.readObject();
             ois.close();
+            System.out.println(al);
         }
 
         do {
@@ -57,17 +59,19 @@ public class ProductsDemo {
 
                         Products products = new Products(id, category, name, quantity, price);
                         al.add(products);
+                        oos = new ObjectOutputStream(new FileOutputStream(file));
+                        oos.writeObject(al);
+                        oos.close();
                     }
                     //write Objects into file
-                    oos = new ObjectOutputStream(new FileOutputStream(file));
-                    oos.writeObject(al);
-                    oos.close();
+
                 break;
                 case 2:
                     if (file.isFile()) {
                         ois = new ObjectInputStream(new FileInputStream(file));
                         al = (ArrayList<Products>) ois.readObject();
                         ois.close();
+
                         System.out.println("_________________________________________________");
                         //use ListIterator to iterate through the file
                         li = al.listIterator();
@@ -89,7 +93,7 @@ public class ProductsDemo {
                         System.out.println("_________________________________________________");
                         li = al.listIterator();
                         while (li.hasNext()) {
-                            Products p = (Products) li.next();
+                            Products p = li.next();
                             if (p.getId() == id) {
                                 System.out.print("Enter new product category: ");
                                 String category = s1.next();
@@ -129,8 +133,8 @@ public class ProductsDemo {
                         System.out.println("_________________________________________________");
                         li = al.listIterator();
                         while (li.hasNext()) {
-                            Products p = (Products) li.next();
-                            if (p.getCategory() == category) {
+                            Products p = li.next();
+                            if ((p.getCategory()).equals(category)) {
                                 System.out.println(p);
                                 found = true;
                             }
@@ -154,8 +158,8 @@ public class ProductsDemo {
                         System.out.println("_________________________________________________");
                         li = al.listIterator();
                         while (li.hasNext()) {
-                            Products p = (Products) li.next();
-                            if (p.getName() == name) {
+                            Products p = li.next();
+                            if ((p.getName()).equals(name)) {
                                 li.remove();
                                 found = true;
                             }

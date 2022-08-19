@@ -1,52 +1,12 @@
-import java.io.Serializable;
+import java.io.*;
 
-public class Products implements Serializable {
+public class Products implements Serializable{
+
     private int id;
     private String category;
     private String name;
     private int quantity;
     private int price;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
 
     public Products(int id, String category, String name, int quantity, int price) {
         this.id = id;
@@ -55,6 +15,26 @@ public class Products implements Serializable {
         this.quantity = quantity;
         this.price = price;
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public int getPrice() {
+        return price;
     }
 
     @Override
@@ -67,7 +47,5 @@ public class Products implements Serializable {
                 ", price='" + price + '\'' +
                 '}';
     }
-
-
 
 }

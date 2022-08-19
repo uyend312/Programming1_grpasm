@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class ProductsDemoForUsers {
+public class ProductsDemoForUsers  {
     public static void main(String args[]) throws Exception {
         int option = -1;
         //s is used for Integer and s1 is for String data
@@ -59,7 +59,7 @@ public class ProductsDemoForUsers {
                         li = al.listIterator();
                         while (li.hasNext()) {
                             Products p = (Products) li.next();
-                            if (p.getCategory() == category) {
+                            if ((p.getCategory()).equals(category)) {
                                 System.out.println(p);
                                 found = true;
                             }
