@@ -11,13 +11,13 @@ public class Main {
         String userChoice = scanner.nextLine();
         switch (userChoice) {
             case ("1"):
-                login.customerLogin();
+                MemberLogin.customerLogin();
                 break;
             case ("2"):
-                register.userRegister();
+                RegisterDemo.registerMember();
                 break;
             case ("3"):
-                adminlogin.admLogin();
+                loginAsAdmin.admLogin();
                 break;
             default:
                 System.out.println("Invalid input");

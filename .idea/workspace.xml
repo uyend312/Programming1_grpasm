@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f88acf8-d63a-4fa4-bea9-da99b818d861" name="Changes" comment="make the codes look cleaner">
-      <change afterPath="$PROJECT_DIR$/src/adminlogin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/adminsite.java" afterDir="false" />
+    <list default="true" id="7f88acf8-d63a-4fa4-bea9-da99b818d861" name="Changes" comment="update the main so other can test the application">
+      <change afterPath="$PROJECT_DIR$/src/MemberLogin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RegisterDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/loginAsAdmin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/userdata.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adminlogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminlogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/myaccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myaccount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/register.java" afterDir="false" />
@@ -33,12 +37,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "settings.editor.selected.configurable": "inlay.hints"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Programming1_grpasm" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -90,7 +109,21 @@
       <option name="project" value="LOCAL" />
       <updated>1660729972288</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="changing the position of the id of the member&#10;add admin login, admin view products and list of members (orders have not finished)">
+      <created>1660814883537</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1660814883537</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update the main so other can test the application">
+      <created>1660814930919</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1660814930919</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -111,6 +144,8 @@
     <MESSAGE value="add login.java and login function" />
     <MESSAGE value="users can view their profile with myaccount.java&#10;- update login.java file (user can choose to review their profile after login)" />
     <MESSAGE value="make the codes look cleaner" />
-    <option name="LAST_COMMIT_MESSAGE" value="make the codes look cleaner" />
+    <MESSAGE value="changing the position of the id of the member&#10;add admin login, admin view products and list of members (orders have not finished)" />
+    <MESSAGE value="update the main so other can test the application" />
+    <option name="LAST_COMMIT_MESSAGE" value="update the main so other can test the application" />
   </component>
 </project>
