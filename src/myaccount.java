@@ -1,5 +1,9 @@
 import java.io.*;
-import java.lang.reflect.Member;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 
 public class myaccount {
 
@@ -45,18 +49,15 @@ public class myaccount {
         float goldMember = 10000000;
         float platinumMember = 25000000;
 
-        File oldFile = new File("userdata.txt");
-        File newFile = new File("tempo.txt");
 
         String line;
         String[] data;
 
         try {
-            FileWriter fileWriter = new FileWriter(newFile,true);
+
             FileReader fr = new FileReader("userdata.txt");
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             BufferedReader br = new BufferedReader(fr);
-            PrintWriter pw = new PrintWriter(bufferedWriter);
+
 
             while ((line = br.readLine()) != null) {
                 data = line.split(",");
@@ -66,44 +67,42 @@ public class myaccount {
 //
 //                }
 
+                Path of = Path.of("userdata.txt");
                 if (Float.parseFloat(data[6]) > silverMember && Float.parseFloat(data[6]) < goldMember) {
                     userStatus = data[5].replace(data[5], "Silver Member");
 //                    data[5] = userStatus;
+
+                    Charset charset = StandardCharsets.UTF_8;
+
+                    String content = Files.readString(of, charset);
+                    content = content.replaceAll(data[5], "Silver Member");
+                    Files.writeString(of, content, charset);
 
 
                 } else if (Float.parseFloat(data[6]) > goldMember && Float.parseFloat(data[6]) < platinumMember) {
                     userStatus = data[5].replace(data[5], "Gold Member");
                     //                   data[5] = userStatus;
+                    Charset charset = StandardCharsets.UTF_8;
+
+                    String content = Files.readString(of, charset);
+                    content = content.replaceAll(data[5], "Gold Member");
+                    Files.writeString(of, content, charset);
 
 
                 } else if (Float.parseFloat(data[6]) > platinumMember) {
                     userStatus = data[5].replace(data[5], "Platinum Member");
                     //                  data[5] = userStatus;
+                    Charset charset = StandardCharsets.UTF_8;
+
+                    String content = Files.readString(of, charset);
+                    content = content.replaceAll(data[5], "Platinum Member");
+                    Files.writeString(of, content, charset);
 
                 }
-
-                if (data[5].equals(userStatus))
-                {
-                    pw.println(userStatus);
-                }
-                else {
-                    pw.println(data[5]);
-                }
-
 
 
 
             }
-            pw.flush();
-            pw.close();
-            fr.close();
-            br.close();
-            bufferedWriter.close();
-            bufferedWriter.close();
-            fileWriter.close();
-            oldFile.delete();
-            File delete = new File("userdata.txt");
-            newFile.renameTo(delete);
 
             //           userStatus = userStatusBuilder.toString();
         } catch (IOException e) {
