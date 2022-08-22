@@ -59,11 +59,12 @@ import java.util.*;
 
                         Products products = new Products(id, category, name, quantity, price);
                         al.add(products);
-                        oos = new ObjectOutputStream(new FileOutputStream(file));
-                        oos.writeObject(al);
-                        oos.close();
+
                     }
                     //write Objects into file
+                    oos = new ObjectOutputStream(new FileOutputStream(file));
+                    oos.writeObject(al);
+                    oos.close();
 
                 break;
                 case 2:
