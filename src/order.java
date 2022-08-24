@@ -1,21 +1,20 @@
 import java.io.*;
-import java.util.Scanner;
-import java.util.UUID;
+import java.util.*;
 
 public class order {
-        private int productId;
+        private String productId;
+        private String productName;
+        private float price;
+        private int quantity;
+        private String category;
 
-        public int getProductId() {
+        public String getProductId() {
             return productId;
         }
 
-        public void setProductId(int productId) {
+        public void setProductId(String productId) {
             this.productId = productId;
         }
-        private String productName;
-        private float unitPrice;
-        private int quantity;
-        private String category;
 
         public String getCategory() {
             return category;
@@ -33,12 +32,12 @@ public class order {
             this.productName = productName;
         }
 
-        public float getUnitPrice() {
-            return unitPrice;
+        public float getPrice() {
+            return price;
         }
 
-        public void setUnitPrice(float unitPrice) {
-            this.unitPrice = unitPrice;
+        public void setPrice(int price) {
+            this.price = price;
         }
 
         public int getQuantity() {
@@ -54,5 +53,19 @@ public class order {
             // String uID = uuid.toString();
             return uuid.toString();
         }
+
+        public order(String productId, String productName, float price, String category) {
+            this.productId = productId;
+            this.productName = productName;
+            this.price = price;
+            this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "productID = " + productId + ", name = " + productName +
+                ", category = " + category + ", quantity = " + quantity +
+                ", price = " + price;
+    }
 
 }
