@@ -6,64 +6,175 @@ import java.util.*;
 public class createOrder {
     public static void createOrder() throws Exception {
         int option;
+        boolean found = false;
         //s is used for Integer and s1 is for String data
         Scanner s = new Scanner(System.in);
         Scanner s1 = new Scanner(System.in);
+        File file = new File("Products.txt");
+        ArrayList<Products> cart = new ArrayList<>();
+        ObjectOutputStream oos;
+        ObjectInputStream ois;
+        ListIterator<Products> li;
 
-        ArrayList<order> al = new ArrayList<>();
-        boolean found = false;
-        option = 1;
+        //Deserialize if file existed
+        if (file.isFile()) {
+            ois = new ObjectInputStream(new FileInputStream(file));
+            cart = (ArrayList<Products>) ois.readObject();
+            ois.close();
+        }
+        do {
+            //validate option
+            do {System.out.println("ENTER A NUMBER 1-5.");
+                System.out.println();
+                System.out.println("1. ADD A PRODUCT TO CART");
+                System.out.println("2. DELETE A PRODUCT IN CART");
+                System.out.println("3. SEARCH PRODUCTS (BY CATEGORY)");
+                System.out.println("4. VIEW CART");
+                System.out.println("5. PLACE ORDER AND CHECKOUT");
+                System.out.println("0. EXIT");
+                System.out.println("Enter your option: ");
 
-        while (option != 0) {
-            System.out.println("1.ADD PRODUCT BY ID");
-            System.out.println("2.ADD PRODUCT BY NAME");
-            System.out.println("3.VIEW CART");
-            System.out.println("4.PROCEED TO CHECKOUT");
-            System.out.println("5.DELETE PRODUCT");
-            System.out.println("0.EXIT");
+                //validate input must be integer
+                while (!s.hasNextInt()) {
+                    System.out.println("That's not a number!");
+                    s.next(); // this is important!
+                }
 
-            System.out.println("Enter your option: ");
-            option = s.nextInt();
+                option = s.nextInt();
 
-            Scanner fileInput = new Scanner(new File("items.txt"));
-            FileWriter fileOutput = new FileWriter("order.txt");
+            } while (0 <= option && option <= 5);
 
-            if (option == 1) {
-                System.out.println("Enter product ID: ");
-                String itemID = s.next();
+            switch (option) {
+                case 1:
+                    System.out.print("Enter Product ID:");
+                    int id = s.nextInt();
 
-                while (fileInput.hasNextLine()) {
-                    String line = new String();
-                    line = fileInput.nextLine();
-                    String[] info = line.split(", ");
-                    for (int i = 0; i <= info.length - 1; i++) {
-                        if (Objects.equals(itemID, info[i])) {
-                            String productID = info[i];
-                            String productName = info[i+1];
-                            Float price =  Float.parseFloat(info[i+2]);
-                            String category = info[i+3];
+                    System.out.print("Enter category:");
+                    String category = s1.next();
 
-                            al.add(new order(productID, productName, price, category));
-                            fileOutput.write(String.valueOf(al));
+                    System.out.print("Enter name:");
+                    String name = s1.next();
 
-                            System.out.println(al);
+                    System.out.print("Enter quantity:");
+                    int quantity = s.nextInt();
 
+                    System.out.print("Enter price:");
+                    int price = s.nextInt();
+
+                    Products product = new Products(id, category, name, quantity, price);
+                    cart.add(product);
+                    break;
+                case 2:
+                    if (file.isFile()) {
+                        ois = new ObjectInputStream(new FileInputStream(file));
+                        cart = (ArrayList<Products>) ois.readObject();
+                        ois.close();
+                        System.out.print("Enter Product's name to Delete:");
+                        String productName = s1.next();
+
+                        System.out.println("_________________________________________________");
+                        li = cart.listIterator();
+                        while (li.hasNext()) {
+                            Products p = li.next();
+                            if ((p.getName()).equals(productName)) {
+                                li.remove();
+                                found = true;
+                            }
                         }
+                        if (found) {
+                            oos = new ObjectOutputStream(new FileOutputStream(file));
+                            oos.writeObject(cart);
+                            oos.close();
+                            System.out.println("Record is successfully deleted...!");
+                        } else {
+                            System.out.println("Records Not Found..!!!");
+                        }
+                        System.out.println("_________________________________________________");
+                    } else {
+                        System.out.println("File Not Found...!!!");
+                    }
+                    break;
+                case 3:
+                    if (file.isFile()) {
+                        ois = new ObjectInputStream(new FileInputStream(file));
+                        cart = (ArrayList<Products>) ois.readObject();
+                        ois.close();
 
+                        System.out.println("Enter Category to Search:");
+                        category = s1.next();
+                        System.out.println("_________________________________________________");
+                        li = cart.listIterator();
+                        while (li.hasNext()) {
+                            Products p = li.next();
+                            if ((p.getCategory()).equals(category)) {
+                                System.out.println(p);
+                                found = true;
+                            }
+                        }
+                        if (!found)
+                            System.out.println("Records Not Found..!!!");
+                        System.out.println("_________________________________________________");
+                    } else {
+                        System.out.println("File Not Found...!!!");
+                    }
+                    break;
+                case 4:
+                    if (file.isFile()) {
+                        ois = new ObjectInputStream(new FileInputStream(file));
+                        cart = (ArrayList<Products>) ois.readObject();
+                        ois.close();
+
+                        System.out.println("_________________________________________________");
+                        //use ListIterator to iterate through the file
+                        li = cart.listIterator();
+                        while (li.hasNext())
+                            System.out.println(li.next());
+                        System.out.println("_________________________________________________");
+                    } else {
+                        System.out.println("File Not Found...!!!");
+                    }
+                    break;
+                case 5:
+                    if (file.isFile()) {
+                        ois = new ObjectInputStream(new FileInputStream(file));
+                        cart =(ArrayList<Products>) ois.readObject();
+                        ois.close();
+                        for (Products c : cart) {
+                            System.out.println(c);}
                     }
 
-                    //System.out.println(fileInput.nextLine());
-                }
+                    System.out.println("_________________________________________________");
+                    //use ListIterator to iterate through the file
+                    li = cart.listIterator();
+                    String parseInt;
+                    int totalPrice = 0;
+                    while (li.hasNext()) {
+                        String x = String.valueOf(li.next());
+
+                        String[] split1 = x.split(
+                                "Products\\{id='[a-zA-Z\\d]+', category='[a-zA-Z\\d]+', name='[a-zA-Z\\d]+', quantity='[\\d]+', ");
+                        String[] split2 = new String[0];
+                        String[] split3 = new String[0];
+                        for (String c : split1) {
+                            split2 = c.split("}");
+                        }
+                        for (String d : split2) {
+                            parseInt = d.replaceAll("[^0-9]", "");
+                            int unitPrice = Integer.parseInt(parseInt);
+                            totalPrice += unitPrice;
+                        }
+                    }
+                    System.out.println("Your total is: " + totalPrice);
+                    System.out.println("Generating order...");
+                    System.out.println("_________________________________________________");
+
+                    //write Objects into file
+                    oos = new ObjectOutputStream(new FileOutputStream(file));
+                    oos.writeObject(cart);
+                    oos.close();
             }
-            if (option == 2) {
-            }
-            if (option == 3) {
-            }
-            if (option == 4) {
-            }
-            if (option == 5) {
-            }
-        }
+
+        } while (option != 0);
     }
 
 
