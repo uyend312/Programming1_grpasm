@@ -2,16 +2,16 @@ import java.io.*;
 import java.util.*;
 
 public class ProductsDemoForUsers  {
-    public static void main(String args[]) throws Exception {
-        int option = -1;
+    public static void ProductsDemoForUsers() throws Exception {
+        int option;
         //s is used for Integer and s1 is for String data
         Scanner s = new Scanner(System.in);
         Scanner s1 = new Scanner(System.in);
         File file = new File("Products.txt");
-        ArrayList<Products> al = new ArrayList<>();
-        ObjectOutputStream oos = null;
-        ObjectInputStream ois = null;
-        ListIterator li = null;
+        ArrayList<Products> al;
+        ObjectOutputStream oos;
+        ObjectInputStream ois;
+        ListIterator li;
 
         //check for existing file to load data to arraylist
         if (file.isFile()) {
