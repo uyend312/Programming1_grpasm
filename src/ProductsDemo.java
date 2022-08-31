@@ -3,7 +3,7 @@ import java.util.*;
 
  public class ProductsDemo{
 
-    public static void main(String args[]) throws Exception {
+    public static void ProductsDemo() throws Exception {
         int option;
         //s is used for Integer and s1 is for String data
         Scanner s = new Scanner(System.in);
