@@ -1,1 +1,2 @@
-bfe7bf1a-ce60-447b-bc2c-79d032ad213b,uyen,duong,uyenduong123@123.com,12345678,New Member,0.0
+a5e07361-7c6a-4979-9776-5d68b50d8c59,hello,world,helloworld@java.com,12345678,Platinum Member,120000000
+0f46a351-6247-46e8-8c5b-3ae279e74c19,hi,java,hellojava@java.com,12345678,Platinum Member,0.0
