@@ -15,6 +15,7 @@ public class myaccount {
             FileReader fr = new FileReader("userdata.txt");
             BufferedReader br = new BufferedReader(fr);
 
+
             while ((line = br.readLine()) != null) {
 
                 data = line.split(",");
@@ -29,6 +30,7 @@ public class myaccount {
                     String status = newStatus(userEmail, data[5]);
                     System.out.println("Level of member: " + status);
                     System.out.println("Total spending: " + data[6] + " VND");
+                    break;
                 }
 
             }
@@ -38,6 +40,8 @@ public class myaccount {
             throw new RuntimeException(e);
 
         }
+
+
     }
 
     public static String newStatus(String userEmail, String userStatus) throws FileNotFoundException {
@@ -56,6 +60,7 @@ public class myaccount {
 
             while ((line = br.readLine()) != null) {
                 data = line.split(",");
+                //System.out.println(line);
 
                 if (userEmail.equals(data[3])) {
 
@@ -63,40 +68,42 @@ public class myaccount {
                         userStatus = "New Member";
                         data[5] = userStatus;
 
-                    } else if (Float.parseFloat(data[6]) > silverMember && Float.parseFloat(data[6]) < goldMember) {
+                    } else if (Float.parseFloat(data[6]) >= silverMember && Float.parseFloat(data[6]) < goldMember) {
                         userStatus = data[5].replace(data[5], "Silver Member");
                         data[5] = userStatus;
+                        userStatus = "Silver Member";
 
-                    } else if ((Float.parseFloat(data[6]) > goldMember && Float.parseFloat(data[6]) < platinumMember)) {
+                    } else if ((Float.parseFloat(data[6]) >= goldMember && Float.parseFloat(data[6]) < platinumMember)) {
                         userStatus = data[5].replace(data[5], "Gold Member");
                         data[5] = userStatus;
+                        userStatus = "Gold Member";
 
-                    } else if ((Float.parseFloat(data[6]) > platinumMember)) {
-                        userStatus = data[5].replace(data[5], "PlatinumMember");
+                    } else if ((Float.parseFloat(data[6]) >= platinumMember)) {
+                        //   userStatus = data[5].replace(data[5], "Platinum Member");
+                        userStatus = data[5].replace(data[5], "Platinum Member");
                         data[5] = userStatus;
+                        userStatus = "Platinum Member";
 
                     }
 
                     String row = data[0] + "," + data[1] + "," + data[2] + "," + data[3] + "," + data[4] + "," + data[5] + "," + data[data.length - 1];
                     stringBuffer.append(row);
-                    stringBuffer.append(System.getProperty("line.separator"));
 
 
 
                 } else {
 
                     stringBuffer.append(line);
-                    stringBuffer.append(System.getProperty("line.separator"));
 
                 }
-
+                stringBuffer.append("\n");
 
 
             }
-
             PrintWriter printWriter = new PrintWriter(new FileOutputStream("userdata.txt", false));
             printWriter.print(stringBuffer);
             printWriter.close();
+
 
 
         } catch (IOException e) {
@@ -105,5 +112,4 @@ public class myaccount {
 
 
         return userStatus;
-    }
-}
+    }}
