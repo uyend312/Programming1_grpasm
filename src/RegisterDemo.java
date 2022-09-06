@@ -20,6 +20,12 @@ public class RegisterDemo {
         rgs.setUserEmail(checkEmailSyntax(rgs.getUserEmail()));
         rgs.setUserEmail(checkAvailable(rgs.getUserEmail()));
 
+        System.out.print("Enter your address: ");
+        rgs.setUserAddress(scanner.nextLine());
+
+        System.out.println("Enter your phone number: ");
+        rgs.setUserPhone(scanner.nextLine());
+
         System.out.println("Enter your password (At least 8 characters)");
         rgs.setUserPassword(scanner.nextLine());
         rgs.setUserPassword(checkPassword(rgs.getUserPassword()));
@@ -39,9 +45,10 @@ public class RegisterDemo {
                  BufferedWriter bw = new BufferedWriter(fw);
                  PrintWriter pw = new PrintWriter(bw)) {
 
-                pw.println(rgs.getUserID() + "," + rgs.getFirstName() + "," + rgs.getLastName() + ","
-                        + rgs.getUserEmail() + "," + rgs.getUserPassword() + "," + rgs.getUserStatus()
+                pw.println(rgs.getUserID() + "," + rgs.getFirstName() + "," + rgs.getLastName() + "," +rgs.getUserEmail() + ","+rgs.getUserAddress() +"," + rgs.getUserPhone()+","
+                        +  rgs.getUserPassword() + "," + rgs.getUserStatus()
                         + "," + rgs.getTotalSpending());
+
                 pw.flush();
 
             } catch (IOException e) {
@@ -124,7 +131,6 @@ public class RegisterDemo {
 
     public static String generateUID () {
         UUID uuid = UUID.randomUUID();
-        // String uID = uuid.toString();
         return uuid.toString();
     }
 
@@ -138,8 +144,7 @@ public class RegisterDemo {
 
     public static float totalSpend ( float spending){
         spending = 0;
-        //spending = newSpend + initial
-        //initial = initial+ spending
+
 
 
         return spending;

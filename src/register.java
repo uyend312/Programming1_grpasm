@@ -4,6 +4,25 @@ public class register {
     private String lastName;
     private String userEmail;
     private String userPassword;
+    private String userAddress;
+
+    public String getUserAddress() {
+        return userAddress;
+    }
+
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
+    }
+
+    public String getUserPhone() {
+        return userPhone;
+    }
+
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
+    }
+
+    private String userPhone;
     private String userStatus;
     private float totalSpending;
 
@@ -19,20 +38,10 @@ public class register {
         this.totalSpending = totalSpending;
     }
 
-    @Override
-    public String toString() {
-        return "register{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", userEmail='" + userEmail + '\'' +
-                ", userPassword='" + userPassword + '\'' +
-                ", userStatus='" + userStatus + '\'' +
-                ", totalSpending=" + totalSpending +
-                ", userID='" + userID + '\'' +
-                '}';
-    }
 
-    public register(String firstName, String lastName, String userEmail, String userPassword, String userStatus, String userID, float totalSpending) {
+
+    public register(String firstName, String lastName, String userEmail, String userPassword, String userStatus, String userID, float totalSpending, String userAddress,
+                    String userPhone) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userEmail = userEmail;
@@ -40,6 +49,8 @@ public class register {
         this.userStatus = userStatus;
         this.userID = userID;
         this.totalSpending = totalSpending;
+        this.userAddress = userAddress;
+        this.userPhone  = userPhone;
     }
 
 

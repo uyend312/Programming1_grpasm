@@ -14,7 +14,6 @@ public class MemberLogin {
 
         System.out.println("Enter password");
         lg.setUserPassword(scanner.nextLine());
-        //checkLogin(userEmail, userPassword);
 
         checkLogin(lg.getUserEmail(), lg.getUserPassword());
 
@@ -31,7 +30,7 @@ public class MemberLogin {
             BufferedReader br = new BufferedReader(fr);
             while ((line = br.readLine()) != null) {
                 data = line.split(",");
-                if (data[3].equals(userEmail) && data[4].equals(userPassword)) {
+                if (data[3].equals(userEmail) && data[6].equals(userPassword)) {
 
                     System.out.println("Login success, Welcome " + data[1] + " " + data[2]);
 
