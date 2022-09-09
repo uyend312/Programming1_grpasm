@@ -37,6 +37,9 @@ import java.util.*;
             System.out.println("0.EXIT");
             System.out.println("Enter your option: ");
             option = s.nextInt();
+            if (option <=0 || option >11){
+                System.out.println("INVALID INPUT PLEASE CHOOSE AGAIN\n");
+            }
             switch (option) {
                 case 1:
                     System.out.println("How many products do you want to add?");
@@ -338,5 +341,8 @@ import java.util.*;
                 break;
             }
         } while (option!=0);
+    }
+    public static void main(String[] args) throws Exception{
+        ProductsDemo();
     }
 }
