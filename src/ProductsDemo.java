@@ -19,7 +19,12 @@ import java.util.*;
             ois = new ObjectInputStream(new FileInputStream(file));
             al =(ArrayList<Products>) ois.readObject();
             ois.close();
-            System.out.println(al);
+            System.out.println("_________________________________________________");
+            //use ListIterator to iterate through the file
+            li = al.listIterator();
+            while (li.hasNext())
+                System.out.println(li.next());
+            System.out.println("_________________________________________________");
         }
 
         do {
@@ -37,9 +42,6 @@ import java.util.*;
             System.out.println("0.EXIT");
             System.out.println("Enter your option: ");
             option = s.nextInt();
-            if (option <=0 || option >11){
-                System.out.println("INVALID INPUT PLEASE CHOOSE AGAIN\n");
-            }
             switch (option) {
                 case 1:
                     System.out.println("How many products do you want to add?");
