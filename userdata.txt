@@ -1,4 +1,4 @@
 ef5f0452-963d-4e5f-ad4d-b2c0f926cdca,uyen,duong,aoi.umi.mu@gmail.com,123/3/4 khu pho 6,090913858493,12345678,Platinum Member,900000000000000
 82260572-2972-4899-a04b-c60cc7b3b13c,hello,myfriend,hello@hi.com,333 meadows blvd,4377707749,12345678,Silver Member,5000000
 6b85481d-322d-41fb-858b-3e74d43814dc,oi,khong,cocoixoai@man.com,vuon trai cay 123/2/3,123234345,123456789,Platinum Member,25000000
-b7b9674d-241c-486b-ba8b-37f1c266ac10,pikachu,face,manxoaicoc@oi.com,trong tim Massu,09123475252,12345678,Silver Member,6000000
+b7b9674d-241c-486b-ba8b-37f1c266ac10,pikachu,face,manxoaicoc@oi.com,444 Dundas Street,09123475252,12345678,Silver Member,6000000
