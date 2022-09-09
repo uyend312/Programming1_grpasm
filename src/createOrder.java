@@ -23,26 +23,22 @@ public class createOrder {
             ois.close();
         }
         do {
-            //validate option
-            do {System.out.println("ENTER A NUMBER 1-5.");
-                System.out.println();
-                System.out.println("1. ADD A PRODUCT TO CART");
-                System.out.println("2. DELETE A PRODUCT IN CART");
-                System.out.println("3. SEARCH PRODUCTS (BY CATEGORY)");
-                System.out.println("4. VIEW CART");
-                System.out.println("5. PLACE ORDER AND CHECKOUT");
-                System.out.println("0. EXIT");
-                System.out.println("Enter your option: ");
+            System.out.println("ENTER A NUMBER 1-5.\n");
+            System.out.println("1. ADD A PRODUCT TO CART");
+            System.out.println("2. DELETE A PRODUCT IN CART");
+            System.out.println("3. SEARCH PRODUCTS (BY CATEGORY)");
+            System.out.println("4. VIEW CART");
+            System.out.println("5. PLACE ORDER AND CHECKOUT");
+            System.out.println("0. EXIT");
+            System.out.println("Enter your option: ");
 
-                //validate input must be integer
-                while (!s.hasNextInt()) {
-                    System.out.println("That's not a number!");
-                    s.next(); // this is important!
-                }
+            //validate input must be integer in range 0-5
+            while (!s.hasNextInt() || s.nextInt() <= 0 || s.nextInt() > 5) {
+                System.out.println("INVALID INPUT!\nChoose an option 0-5: ");
+                s.next(); // this is important!
+            }
 
-                option = s.nextInt();
-
-            } while (0 <= option && option <= 5);
+            option = s.nextInt();
 
             switch (option) {
                 case 1:
