@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class order {
+        private ArrayList<Products> cart;
         private String productId;
         private String productName;
         private float price;

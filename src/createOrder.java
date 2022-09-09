@@ -36,6 +36,7 @@ public class createOrder {
             while (!s.hasNextInt() || s.nextInt() <= 0 || s.nextInt() > 5) {
                 System.out.println("INVALID INPUT!\nChoose an option 0-5: ");
                 s.next(); // this is important!
+
             }
 
             option = s.nextInt();
