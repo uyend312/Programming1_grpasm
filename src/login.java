@@ -1,6 +1,6 @@
 
 public class login {
-    private String userEmail;
+    public static String userEmail;
     private String userPassword;
 
     public login() {
