@@ -38,7 +38,7 @@ public class createOrder {
             System.out.println("ENTER A NUMBER 1-5.\n");
             System.out.println("1. ADD A PRODUCT TO CART");
             System.out.println("2. DELETE A PRODUCT IN CART");
-            System.out.println("3. SEARCH PRODUCTS (BY CATEGORY)");
+            System.out.println("3. SEARCH AVAILABLE PRODUCTS (BY CATEGORY)");
             System.out.println("4. VIEW CART");
             System.out.println("5. PLACE ORDER AND CHECKOUT");
             System.out.println("0. EXIT");
