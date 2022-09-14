@@ -20,12 +20,12 @@ public class Main {
         int userChoice = 0;
 
         while(userChoice != 1 && userChoice != 2 && userChoice != 3 && userChoice != 4) {
-            System.out.println("Enter your option 1-3:");
+            System.out.println("Enter your option 1-4:");
             Scanner scanner = new Scanner(System.in);
 
             //validate input must be integer
             while (!scanner.hasNextInt()) {
-                System.out.println("INVALID INPUT!\nChoose an option 1-3: ");
+                System.out.println("INVALID INPUT!\nChoose an option 1-4: ");
                 scanner.next();
             }
 

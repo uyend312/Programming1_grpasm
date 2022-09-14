@@ -200,6 +200,7 @@ public class createOrder {
                         oos = new ObjectOutputStream(new FileOutputStream(orderFile));
                         oos.writeObject(newOrder);
                         oos.close();
+
                     }
                 default:
                     System.out.println("");

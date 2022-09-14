@@ -10,14 +10,11 @@ public class myaccount {
             while (userEmail.isEmpty()) {
                 System.out.println("You need to login first");
                 MemberLogin.memberLogin();
-
             }
             FileReader fr = new FileReader("userdata.txt");
             BufferedReader br = new BufferedReader(fr);
 
-
             while ((line = br.readLine()) != null) {
-
                 data = line.split(";");
                 if (userEmail.equals(data[3])) {
                     for (String s : Arrays.asList(
@@ -31,22 +28,15 @@ public class myaccount {
                     System.out.println("Total spending: " + data[8] + " VND");
                     break;
                 }
-
             }
-
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
-
         }
-
-
     }
-
     public static String newStatus(String userEmail, String userStatus) throws FileNotFoundException {
         float silverMember = 5000000;
         float goldMember = 10000000;
         float platinumMember = 25000000;
-
 
         StringBuilder stringBuffer;
         try {
@@ -58,7 +48,6 @@ public class myaccount {
 
             while ((line = br.readLine()) != null) {
                 data = line.split(";");
-
 
                 if (userEmail.equals(data[3])) {
 
@@ -86,28 +75,16 @@ public class myaccount {
                     String row = data[0] + ";" + data[1] + ";" + data[2] + ";" + data[3] + ";" + data[4] + ";" + data[5] + ";"+
                             data[6]+";"+data[7]+";" + data[data.length - 1];
                     stringBuffer.append(row);
-
-
-
                 } else {
-
                     stringBuffer.append(line);
-
                 }
                 stringBuffer.append("\n");
-
-
             }
             PrintWriter printWriter = new PrintWriter(new FileOutputStream("userdata.txt", false));
             printWriter.print(stringBuffer);
             printWriter.close();
-
-
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
         return userStatus;
     }}
