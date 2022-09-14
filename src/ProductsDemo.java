@@ -20,6 +20,7 @@ public class ProductsDemo{
             al =(ArrayList<Products>) ois.readObject();
             ois.close();
             System.out.println("_________________________________________________");
+            System.out.println("Product List:");
             //use ListIterator to iterate through the file
             li = al.listIterator();
             while (li.hasNext())
@@ -28,16 +29,16 @@ public class ProductsDemo{
         }
 
         do {
-            System.out.println("1.ADD PRODUCTS");
-            System.out.println("2.SHOW PRODUCTS");
-            System.out.println("3.UPDATE PRODUCTS");
-            System.out.println("4.SEARCH PRODUCTS (BY CATEGORY)");
-            System.out.println("5.DELETE PRODUCTS");
-            System.out.println("6.SORT PRODUCTS BY PRICE (Ascending)- On Screen only");
-            System.out.println("7.SORT PRODUCTS BY PRICE (Ascending)- In file");
-            System.out.println("8.SORT PRODUCTS BY QUANTITY (Ascending)- On Screen only");
-            System.out.println("9.SORT PRODUCTS BY QUANTITY (Ascending)- In file");
-            System.out.println("0.EXIT");
+            System.out.println("1. ADD PRODUCTS");
+            System.out.println("2. SHOW PRODUCTS");
+            System.out.println("3. UPDATE PRODUCTS");
+            System.out.println("4. SEARCH PRODUCTS (BY CATEGORY)");
+            System.out.println("5. DELETE PRODUCTS");
+            System.out.println("6. SORT PRODUCTS BY PRICE (Ascending)- On Screen only");
+            System.out.println("7. SORT PRODUCTS BY PRICE (Ascending)- In file");
+            System.out.println("8. SORT PRODUCTS BY QUANTITY (Ascending)- On Screen only");
+            System.out.println("9. SORT PRODUCTS BY QUANTITY (Ascending)- In file");
+            System.out.println("0. EXIT");
             System.out.println("Enter your option: ");
             option = s.nextInt();
             switch (option) {
@@ -46,23 +47,24 @@ public class ProductsDemo{
                     int amount = s.nextInt();
                     for (int i = 0; i < amount; i++) {
 
-                        System.out.print("Enter category:");
-                        String category = s1.next();
-
-                        System.out.print("Enter name:");
+                        System.out.print("Enter product name: ");
                         String name = s1.next();
 
-                        System.out.print("Enter quantity:");
+                        System.out.print("Enter product category: ");
+                        String category = s1.next();
+
+                        System.out.print("Enter quantity: ");
                         int quantity = s.nextInt();
 
-                        System.out.print("Enter price:");
+                        System.out.print("Enter product price: ");
                         int price = s.nextInt();
 
                         String id = generateUUID();
                         Products products = new Products(id, category, name, quantity, price);
                         al.add(products);
-
+                        System.out.println();
                     }
+                    System.out.println("_________________________________________________");
                     //write Objects into file
                     oos = new ObjectOutputStream(new FileOutputStream(file));
                     oos.writeObject(al);

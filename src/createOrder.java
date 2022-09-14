@@ -61,12 +61,12 @@ public class createOrder {
                 case 2:
                     if (file.isFile()) {
                         found = false;
-                        System.out.println("Enter a product name:");
+                        System.out.println("Enter product name:");
                         String name = s1.next();
                         li = productList.listIterator();
                         while (li.hasNext()) {
                             Products p = li.next();
-                            if ((p.getName()).equals(name)) {
+                            if ((p.getName()).equals(name.toLowerCase())) {
                                 System.out.println(p);
                                 cart.add(p);
                                 System.out.println("Product added to cart.");
@@ -81,13 +81,17 @@ public class createOrder {
                     }
                     break;
                 case 3:
-                    System.out.print("Enter Product's name to Delete:");
+                    System.out.print("Enter the Product name to Delete: ");
                     String name = s1.next();
                     for (Products c : cart) {
-                        if ((c.getName()).equals(name)) {
+                        if ((c.getName()).equals(name.toLowerCase())) {
                             cart.remove(c);
                             System.out.println("Product removed.");
+                            found = true;
                         }
+                    }
+                    if (!found) {
+                        System.out.println("Cannot find product to delete!");
                     }
                     System.out.println("_________________________________________________");
                     break;
@@ -98,115 +102,107 @@ public class createOrder {
                         li = productList.listIterator();
                         while (li.hasNext()) {
                             Products p = li.next();
-                            if ((p.getCategory()).equals(category)) {
+                            if ((p.getCategory()).equals(category.toLowerCase())) {
                                 System.out.println(p);
                                 found = true;
                             }
                         }
                         if (!found)
-                            System.out.println("Records Not Found..!!!");
+                            System.out.println("Category Not Found!");
                         System.out.println("_________________________________________________");
                     } else {
                         System.out.println("Product list file Not Found...!!!");
                     }
                     break;
                 case 5:
+                    if (cart.isEmpty()) {
+                        System.out.println("Cart empty.");
+                    }
                     for (Products c : cart) {
                         System.out.println(c);
                     }
                     System.out.println("_________________________________________________");
                     break;
                 case 6:
-                    //use ListIterator to iterate through the file
-                    li = cart.listIterator();
-                    String parseInt;
-                    double totalPrice = 0;
-                    while (li.hasNext()) {
-                        String x = String.valueOf(li.next());
-
-                        String[] split1 = x.split(
-                                "Products\\{id='[a-zA-Z\\d]+', category='[a-zA-Z\\d]+', name='[a-zA-Z\\d]+', quantity='[\\d]+', ");
-                        String[] split2 = new String[0];
-                        String[] split3 = new String[0];
-                        for (String c : split1) {
-                            split2 = c.split("}");
-                        }
-                        for (String d : split2) {
-                            parseInt = d.replaceAll("[^0-9]", "");
-                            double unitPrice = Integer.parseInt(parseInt);
-                            totalPrice += unitPrice;
-                        }
+                    if (cart.isEmpty()) {
+                        System.out.println("Cart is empty! Cannot generate your order request!");
                     }
-                    //String email = login.userEmail; //need this to work, didnt check yet
-                    String email = "aoi.umi.mu@gmail.com";
-                    String line;
-                    String[] data;
-                    String userId = null;
-                    String firstName = null;
-                    String lastName = null;
-                    String address = null;
-                    String phone = null;
-                    String status = null;
-                    String orderID = generateUUID();
+                    else {
+                        //String email = login.userEmail; //need this to work, didnt check yet
+                        String email = "abc@abc.com";
+                        String line;
+                        String[] data;
+                        String userId = null;
+                        String firstName = null;
+                        String lastName = null;
+                        String address = null;
+                        String phone = null;
+                        String status = null;
+                        String orderID = generateUUID();
 
-                    FileReader fr = new FileReader("userdata.txt");
-                    BufferedReader br = new BufferedReader(fr);
+                        FileReader fr = new FileReader("userdata.txt");
+                        BufferedReader br = new BufferedReader(fr);
 
-                    while ((line = br.readLine()) != null) {
+                        double totalPrice = 0;
+                        //calculate total price
+                        for (Products c : cart) {
+                            double productPrice = c.getPrice();
+                            totalPrice += productPrice;
+                        }
+                        // get user info
+                        while ((line = br.readLine()) != null) {
 
-                        data = line.split(";");
+                            data = line.split(";");
 
-                        if (email.equals(data[3])) {
-                            userId = data[0];
-                            firstName = data[1];
-                            lastName = data[2];
-                            address = data[4];
-                            phone = data[5];
+                            if (email.equals(data[3])) {
+                                userId = data[0];
+                                firstName = data[1];
+                                lastName = data[2];
+                                address = data[4];
+                                phone = data[5];
 
-                            status = myaccount.newStatus(email, data[7]);
-                            break;
+                                status = myaccount.newStatus(email, data[7]);
+                                break;
+                            }
+                        }
+                        //Print order information
+                        System.out.println("<------------ Your Order information ------------>");
+                        System.out.println(
+                                "orderID: " + orderID + "\nuserID: " + userId + "\nFirst name: " + firstName + "\nLast name: " + lastName
+                                        + "\nEmail: " + email + "\nAddress: " + address + "\nPhone: " + phone);
+
+                        System.out.println("Level of member: " + status);
+                        if (status == "Platinum Member") {
+                            System.out.println("You receive a 15% discount on your total!");
+                            System.out.println("Your initial total is: " + totalPrice + "VND.");
+                            totalPrice = totalPrice * 0.85;
+                        } else if (status == "Gold Member") {
+                            System.out.println("You receive a 10% discount on your total!");
+                            System.out.println("Your initial total is: " + totalPrice + "VND.");
+                            totalPrice = totalPrice * 0.9;
+                        } else if (status == "Silver Member") {
+                            System.out.println("You receive a 5% discount on your total!");
+                            System.out.println("Your initial total is: " + totalPrice + "VND.");
+                            totalPrice = totalPrice * 0.95;
+                        } else {
+                            System.out.println("No discount available.");
+                            System.out.println("Your initial total is: " + totalPrice + "VND.");
                         }
 
-                    }
+                        System.out.println("Your total after discount is: " + totalPrice + "VND.");
+                        System.out.println("\nGenerating order...");
+                        System.out.println("SUCCESS!");
+                        System.out.println("_________________________________________________");
 
-                    System.out.println("<------------Your Order information------------>");
-                    System.out.println(
-                            "ID:" + userId + "\nFirst name: " + firstName + "\nLast name: " + lastName
-                                    + "\nEmail: " + email + "\nAddress: " + address + "\nPhone: " + phone);
-
-                    System.out.println("Level of member: " + status);
-                    if (status == "Platinum Member") {
-                        System.out.println("You receive a 15% discount on your total!");
-                        System.out.println("Your initial total is: " + totalPrice + "VND.");
-                        totalPrice = totalPrice * 0.85;
-                    } else if (status == "Gold Member") {
-                        System.out.println("You receive a 10% discount on your total!");
-                        System.out.println("Your initial total is: " + totalPrice + "VND.");
-                        totalPrice = totalPrice * 0.9;
-                    } else if (status == "Silver Member") {
-                        System.out.println("You receive a 5% discount on your total!");
-                        System.out.println("Your initial total is: " + totalPrice + "VND.");
-                        totalPrice = totalPrice * 0.95;
-                    } else {
-                        System.out.println("No discount available.");
-                        System.out.println("Your initial total is: " + totalPrice + "VND.");
-                    }
-
-                    System.out.println("Your total after discount is: " + totalPrice + "VND.");
-                    System.out.println("Generating order...");
-                    System.out.println("_________________________________________________");
-
-                    //write new order into file
-                    Order newOrder = new Order(orderID, userId, firstName, lastName, address, phone, status, cart);
-                    order.add(newOrder);
-                    oos = new ObjectOutputStream(new FileOutputStream(orderFile));
-                    oos.writeObject(newOrder);
-                    oos.close();
-                    for (Order c : order) {
-                        System.out.println(c);
+                        //write new order into file
+                        Order newOrder = new Order(orderID, userId, firstName, lastName, address, phone, status, cart);
+                        order.add(newOrder);
+                        oos = new ObjectOutputStream(new FileOutputStream(orderFile));
+                        oos.writeObject(newOrder);
+                        oos.close();
                     }
                 default:
-                    System.out.println("Invalid input");
+                    System.out.println("");
             }
         } while (option != 0);
     }
