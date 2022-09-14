@@ -3,12 +3,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        System.out.println("COSC2081 GROUP ASSIGNMENT \n" +
-                "STORE ORDER MANAGEMENT SYSTEM \n" +
-                "Instructor: Mr. Minh Vu \n" +
-                "Group: Group 16 \n" +
-                "s3924821, Nhat Tran Minh \n" +
-                "s3904419, Phong Nguyen \n" +
+        System.out.println("\nCOSC2081 GROUP ASSIGNMENT\n" +
+                "STORE ORDER MANAGEMENT SYSTEM\n" +
+                "Instructor: Mr. Minh Vu\n" +
+                "Group:s 16\n" +
+                "s3924821, Nhat Tran Minh\n" +
+                "s3904419, Phong Nguyen\n" +
                 "s3904418, Uyen Duong");
         System.out.println("<-------------------------------------->");
         System.out.println("Welcome to our shop!\nEnter 1 to login if you already have an account.");
