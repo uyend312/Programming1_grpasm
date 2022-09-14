@@ -128,8 +128,8 @@ public class createOrder {
                         System.out.println("Cart is empty! Cannot generate your order request!");
                     }
                     else {
-                        //String email = login.userEmail; //need this to work, didnt check yet
-                        String email = "abc@abc.com";
+                        String email = login.userEmail; //need this to work, didnt check yet
+                        //String email = "abc@abc.com";
                         String line;
                         String[] data;
                         String userId = null;
