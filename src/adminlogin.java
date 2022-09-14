@@ -27,7 +27,7 @@ public class adminlogin {
 
     @Override
     public String toString() {
-        return "adminlogin{" +
+        return "adminLogin{" +
                 "adminUserName='" + adminUserName + '\'' +
                 ", adminPassword='" + adminPassword + '\'' +
                 '}';

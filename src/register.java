@@ -6,6 +6,10 @@ public class register {
     private String userPassword;
     private String userAddress;
 
+    public register() {
+
+    }
+
     public String getUserAddress() {
         return userAddress;
     }
@@ -26,10 +30,6 @@ public class register {
     private String userStatus;
     private double totalSpending;
 
-    public register() {
-
-    }
-
     public double getTotalSpending() {
         return totalSpending;
     }
@@ -37,8 +37,6 @@ public class register {
     public void setTotalSpending(double totalSpending) {
         this.totalSpending = totalSpending;
     }
-
-
 
     public register(String firstName, String lastName, String userEmail, String userPassword, String userStatus, String userID, double totalSpending, String userAddress,
                     String userPhone) {
