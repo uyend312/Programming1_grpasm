@@ -5,6 +5,7 @@ import java.util.UUID;
 
 public class RegisterDemo {
     public static void registerMember() throws IOException {
+
         register rgs = new register();
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter your first name: ");
@@ -22,9 +23,11 @@ public class RegisterDemo {
 
         System.out.print("Enter your address: ");
         rgs.setUserAddress(scanner.nextLine());
+        rgs.setUserAddress(ValidateAddress(rgs.getUserAddress()));
 
         System.out.println("Enter your phone number: ");
         rgs.setUserPhone(scanner.nextLine());
+        rgs.setUserPhone(ValidatePhone(rgs.getUserPhone()));
 
         System.out.println("Enter your password (At least 8 characters)");
         rgs.setUserPassword(scanner.nextLine());
@@ -45,9 +48,9 @@ public class RegisterDemo {
                  BufferedWriter bw = new BufferedWriter(fw);
                  PrintWriter pw = new PrintWriter(bw)) {
 
-                pw.println(rgs.getUserID() + "," + rgs.getFirstName() + "," + rgs.getLastName() + "," +rgs.getUserEmail() + ","+rgs.getUserAddress() +"," + rgs.getUserPhone()+","
-                        +  rgs.getUserPassword() + "," + rgs.getUserStatus()
-                        + "," + rgs.getTotalSpending());
+                pw.println(rgs.getUserID() + ";" + rgs.getFirstName() + ";" + rgs.getLastName() + ";" +rgs.getUserEmail() + ";"+rgs.getUserAddress() +";" + rgs.getUserPhone()+";"
+                        +  rgs.getUserPassword() + ";" + rgs.getUserStatus()
+                        + ";" + rgs.getTotalSpending());
 
                 pw.flush();
 
@@ -87,7 +90,7 @@ public class RegisterDemo {
         BufferedReader br = new BufferedReader(fr);
         String line;
         while ((line = br.readLine()) != null) {
-            String[] values = line.split(",");
+            String[] values = line.split(";");
             if (input.equals(values[3]) && !input.isEmpty()) {
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("This email is available, try again");
@@ -96,12 +99,13 @@ public class RegisterDemo {
 
             }
 
+
         }
         return input;
     }
 
     public static String checkEmailSyntax (String input){
-        while (!input.matches("^(.+)@(\\S+)$")) {
+        while (!input.matches("^(.+)@[a-zA-Z\\d.-]+$")) {
 
             Scanner scanner = new Scanner(System.in);
             System.out.println("Invalid email, try again");
@@ -142,12 +146,32 @@ public class RegisterDemo {
 
     }
 
-    public static float totalSpend ( float spending){
+    public static double totalSpend ( double spending){
         spending = 0;
 
 
-
         return spending;
+    }
+    public static String ValidateAddress(String input)
+    {
+        Scanner scanner = new Scanner(System.in);
+        while (!input.matches("^[^;]*$"))
+        {
+            System.out.println("Cannot include ';' inside");
+            input = scanner.nextLine();
+        }
+
+        return input;
+    }
+    public static String ValidatePhone(String input)
+    {
+        Scanner scanner = new Scanner(System.in);
+        while (!input.matches("[0-9]+"))
+        {
+            System.out.println("Cannot have character");
+            input = scanner.nextLine();
+        }
+        return input;
     }
 }
 

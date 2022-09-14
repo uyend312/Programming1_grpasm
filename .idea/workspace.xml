@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f88acf8-d63a-4fa4-bea9-da99b818d861" name="Changes" comment="update phone and number into user data">
-      <change afterPath="$PROJECT_DIR$/src/ProductsDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProductsDemoForUsers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Products.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MemberLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MemberLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminlogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminlogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adminsite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminsite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProductsDemoForUsers.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RegisterDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegisterDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/createOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/createOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/myaccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myaccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/register.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/userdata.txt" beforeDir="false" afterPath="$PROJECT_DIR$/userdata.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,17 +36,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last.edited.regexp": "",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "inlay.hints"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Programming1_grpasm" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisterDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="RegisterDemo" />
       <module name="Programming1_grpasm" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -61,6 +70,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.RegisterDemo" />
         <item itemvalue="Application.createOrder" />
       </list>
     </recent_temporary>
@@ -165,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662463876681</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="update phone and number into user data">
+      <created>1663126125862</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1663126125862</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

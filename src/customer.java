@@ -79,7 +79,7 @@ public class customer {
                             @Override
                             public int compare(Products p1, Products p2) {
 
-                                return p1.getPrice()- p2.getPrice();
+                                return (int) (p1.getPrice()- p2.getPrice());
                             }
                         });
 
@@ -102,7 +102,7 @@ public class customer {
                             @Override
                             public int compare(Products p1, Products p2) {
 
-                                return p1.getPrice()- p2.getPrice();
+                                return (int) (p1.getPrice()- p2.getPrice());
                             }
                         });
                         //This block of code will write the sorted data into file

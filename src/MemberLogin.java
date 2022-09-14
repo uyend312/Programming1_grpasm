@@ -29,7 +29,7 @@ public class MemberLogin {
             FileReader fr = new FileReader("userdata.txt");
             BufferedReader br = new BufferedReader(fr);
             while ((line = br.readLine()) != null) {
-                data = line.split(",");
+                data = line.split(";");
                 if (data[3].equals(userEmail) && data[6].equals(userPassword)) {
 
                     System.out.println("Login success, Welcome " + data[1] + " " + data[2]);
@@ -44,8 +44,8 @@ public class MemberLogin {
                             break;
                         // Go to the main page to shop
                         case ("2"):
-                          //  createOrder.createOrder();
-                            ProductsDemoForUsers.ProductsDemoForUsers();
+                          createOrder.createOrder();
+                      //      ProductsDemoForUsers.ProductsDemoForUsers();
                             break;
                         default:
                             System.out.println("Invalid input");

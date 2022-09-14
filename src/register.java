@@ -24,23 +24,23 @@ public class register {
 
     private String userPhone;
     private String userStatus;
-    private float totalSpending;
+    private double totalSpending;
 
     public register() {
 
     }
 
-    public float getTotalSpending() {
+    public double getTotalSpending() {
         return totalSpending;
     }
 
-    public void setTotalSpending(float totalSpending) {
+    public void setTotalSpending(double totalSpending) {
         this.totalSpending = totalSpending;
     }
 
 
 
-    public register(String firstName, String lastName, String userEmail, String userPassword, String userStatus, String userID, float totalSpending, String userAddress,
+    public register(String firstName, String lastName, String userEmail, String userPassword, String userStatus, String userID, double totalSpending, String userAddress,
                     String userPhone) {
         this.firstName = firstName;
         this.lastName = lastName;

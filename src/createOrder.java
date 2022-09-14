@@ -55,29 +55,6 @@ public class createOrder {
 
             switch (option) {
                 case 1:
-                    System.out.print("Enter Product ID: ");
-                    int id = s.nextInt();
-
-                    System.out.print("Enter category: ");
-                    category = s1.next();
-
-                    System.out.print("Enter name: ");
-                    String name = s1.next();
-
-                    System.out.print("Enter quantity: ");
-                    int quantity = s.nextInt();
-
-                    System.out.print("Enter price: ");
-                    int price = s.nextInt();
-
-                    Products product = new Products(id, category, name, quantity, price);
-                    cart.add(product);
-
-                    //write Objects into file
-                    oos = new ObjectOutputStream(new FileOutputStream(cartFile));
-                    oos.writeObject(cart);
-                    oos.close();
-                    
                     break;
                 case 2:
                     if (file.isFile()) {

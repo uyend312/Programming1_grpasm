@@ -18,8 +18,7 @@ public class myaccount {
 
             while ((line = br.readLine()) != null) {
 
-                data = line.split(",");
-
+                data = line.split(";");
                 if (userEmail.equals(data[3])) {
                     for (String s : Arrays.asList(
                             "<--------------Your Account information-------------->",
@@ -58,34 +57,34 @@ public class myaccount {
             BufferedReader br = new BufferedReader(fr);
 
             while ((line = br.readLine()) != null) {
-                data = line.split(",");
+                data = line.split(";");
 
 
                 if (userEmail.equals(data[3])) {
 
-                    if (Float.parseFloat(data[8]) < silverMember) {
+                    if (Double.parseDouble(data[8]) < silverMember) {
                         userStatus = "New Member";
                         data[7] = userStatus;
 
-                    } else if (Float.parseFloat(data[8]) >= silverMember && Float.parseFloat(data[8]) < goldMember) {
+                    } else if (Double.parseDouble(data[8]) >= silverMember && Double.parseDouble(data[8]) < goldMember) {
                         userStatus = data[7].replace(data[7], "Silver Member");
                         data[7] = userStatus;
                         userStatus = "Silver Member";
 
-                    } else if ((Float.parseFloat(data[8]) >= goldMember && Float.parseFloat(data[8]) < platinumMember)) {
+                    } else if ((Double.parseDouble(data[8]) >= goldMember && Double.parseDouble(data[8]) < platinumMember)) {
                         userStatus = data[7].replace(data[7], "Gold Member");
                         data[7] = userStatus;
                         userStatus = "Gold Member";
 
-                    } else if ((Float.parseFloat(data[8]) >= platinumMember)) {
+                    } else if ((Double.parseDouble(data[8]) >= platinumMember)) {
                         userStatus = data[7].replace(data[7], "Platinum Member");
                         data[7] = userStatus;
                         userStatus = "Platinum Member";
 
                     }
 
-                    String row = data[0] + "," + data[1] + "," + data[2] + "," + data[3] + "," + data[4] + "," + data[5] + ","+
-                            data[6]+","+data[7]+"," + data[data.length - 1];
+                    String row = data[0] + ";" + data[1] + ";" + data[2] + ";" + data[3] + ";" + data[4] + ";" + data[5] + ";"+
+                            data[6]+";"+data[7]+";" + data[data.length - 1];
                     stringBuffer.append(row);
 
 
