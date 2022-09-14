@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class MemberLogin {
-    public static void customerLogin() throws IOException {
+    public static void memberLogin() throws IOException {
         login lg = new login();
         System.out.println("Enter email");
         Scanner scanner = new Scanner(System.in);
@@ -60,7 +60,7 @@ public class MemberLogin {
             throw new RuntimeException(e);
         }
         System.out.println("Login failed, invalid user-email or password, try again");
-        customerLogin();
+        memberLogin();
 
     }
 

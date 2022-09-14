@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         System.out.println("\nCOSC2081 GROUP ASSIGNMENT\n" +
                 "STORE ORDER MANAGEMENT SYSTEM\n" +
                 "Instructor: Mr. Minh Vu\n" +
@@ -11,13 +11,15 @@ public class Main {
                 "s3904419, Phong Nguyen\n" +
                 "s3904418, Uyen Duong");
         System.out.println("<-------------------------------------->");
-        System.out.println("Welcome to our shop!\nEnter 1 to login if you already have an account.");
-        System.out.println("Enter 2 to register.");
-        System.out.println("Login as an admin, enter 3.");
+        System.out.println("Welcome to our shop!\n");
+        System.out.println("Enter 1 to browse and view our products.");
+        System.out.println("Enter 2 to login if you already have an account.");
+        System.out.println("Enter 3 to register a new account.");
+        System.out.println("Login as an admin, enter 4.");
 
         int userChoice = 0;
 
-        while(userChoice != 1 && userChoice != 2 && userChoice != 3) {
+        while(userChoice != 1 && userChoice != 2 && userChoice != 3 && userChoice != 4) {
             System.out.println("Enter your option 1-3:");
             Scanner scanner = new Scanner(System.in);
 
@@ -30,12 +32,14 @@ public class Main {
             userChoice = scanner.nextInt();
             switch(userChoice) {
                 case 1:
-                    MemberLogin.customerLogin();
-                    break;
+                    customer.customer();
                 case 2:
-                    RegisterDemo.registerMember();
+                    MemberLogin.memberLogin();
                     break;
                 case 3:
+                    RegisterDemo.registerMember();
+                    break;
+                case 4:
                     loginAsAdmin.admLogin();
                     break;
                 default:

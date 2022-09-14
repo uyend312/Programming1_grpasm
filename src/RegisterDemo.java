@@ -59,7 +59,7 @@ public class RegisterDemo {
             }
             System.out.println("Thank you! You have register to our site");
             System.out.println("Now you can log in");
-            MemberLogin.customerLogin();
+            MemberLogin.memberLogin();
         } else if (userChoice == 2) {
             System.out.println("Thank you for visiting our site");
         }

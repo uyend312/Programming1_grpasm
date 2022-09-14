@@ -9,7 +9,7 @@ public class myaccount {
             String[] data;
             while (userEmail.isEmpty()) {
                 System.out.println("You need to login first");
-                MemberLogin.customerLogin();
+                MemberLogin.memberLogin();
 
             }
             FileReader fr = new FileReader("userdata.txt");
