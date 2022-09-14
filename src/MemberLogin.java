@@ -34,7 +34,7 @@ public class MemberLogin {
 
                     System.out.println("Login success, Welcome " + data[1] + " " + data[2]);
 
-                    System.out.println("Go to your account page, press 1");
+                    System.out.println("Go to your account page, press 1 Go to main page, press 2");
                     Scanner scanner = new Scanner(System.in);
                     String userChoice = scanner.nextLine();
                     switch (userChoice) {
@@ -42,10 +42,10 @@ public class MemberLogin {
                         case ("1"):
                             myaccount.userAccount(userEmail);
                             break;
-                        // Go to the main order page
+                        // Go to the main page to shop
                         case ("2"):
-                            // register.userRegister();
-
+                          //  createOrder.createOrder();
+                            ProductsDemoForUsers.ProductsDemoForUsers();
                             break;
                         default:
                             System.out.println("Invalid input");
@@ -56,7 +56,7 @@ public class MemberLogin {
                     return;
                 }
             }
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
         System.out.println("Login failed, invalid user-email or password, try again");

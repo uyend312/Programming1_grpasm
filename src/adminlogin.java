@@ -1,5 +1,3 @@
-import java.io.IOException;
-import java.util.Scanner;
 public class adminlogin {
     private String adminUserName;
     private String adminPassword;

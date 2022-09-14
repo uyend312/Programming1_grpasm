@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f88acf8-d63a-4fa4-bea9-da99b818d861" name="Changes" comment="update code, add total spend into user page &quot;myaccount.java&quot;, generate membership for user">
+    <list default="true" id="7f88acf8-d63a-4fa4-bea9-da99b818d861" name="Changes" comment="update phone and number into user data">
+      <change afterPath="$PROJECT_DIR$/src/ProductsDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ProductsDemoForUsers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/myaccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myaccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Products.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Products.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MemberLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MemberLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adminlogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminlogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adminsite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminsite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userdata.txt" beforeDir="false" afterPath="$PROJECT_DIR$/userdata.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +39,20 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Programming1_grpasm" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="createOrder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="createOrder" />
       <module name="Programming1_grpasm" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -47,6 +61,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.createOrder" />
       </list>
     </recent_temporary>
   </component>
@@ -122,7 +137,35 @@
       <option name="project" value="LOCAL" />
       <updated>1660888119054</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="able to update membership into files">
+      <created>1661132888547</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1661132888547</updated>
+    </task>
+    <task id="LOCAL-00011" summary="update &quot;my account&quot;">
+      <created>1662019485299</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1662019485299</updated>
+    </task>
+    <task id="LOCAL-00012" summary="update &quot;my account&quot;">
+      <created>1662383812181</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1662383812181</updated>
+    </task>
+    <task id="LOCAL-00013" summary="update phone and number into user data">
+      <created>1662463876681</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1662463876681</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -146,6 +189,9 @@
     <MESSAGE value="changing the position of the id of the member&#10;add admin login, admin view products and list of members (orders have not finished)" />
     <MESSAGE value="update the main so other can test the application" />
     <MESSAGE value="update code, add total spend into user page &quot;myaccount.java&quot;, generate membership for user" />
-    <option name="LAST_COMMIT_MESSAGE" value="update code, add total spend into user page &quot;myaccount.java&quot;, generate membership for user" />
+    <MESSAGE value="able to update membership into files" />
+    <MESSAGE value="update &quot;my account&quot;" />
+    <MESSAGE value="update phone and number into user data" />
+    <option name="LAST_COMMIT_MESSAGE" value="update phone and number into user data" />
   </component>
 </project>

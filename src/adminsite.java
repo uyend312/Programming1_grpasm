@@ -31,20 +31,7 @@ public class adminsite {
     }
     public static void viewOrdersInformation()
     {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Select 1 to view orders information \nSelect 2 to edit orders");
-        int a = sc.nextInt();
-
-        switch (a) {
-            case (1):
-                viewFile("");
-                break;
-            case (2):
-
-                break;
-            default:
-                System.out.println("Invalid input");
-        }
+        viewFile("order.txt");
     }
     public static void viewMembersInformation() throws IOException {
         Scanner sc = new Scanner(System.in);
@@ -56,11 +43,11 @@ public class adminsite {
 
 
                 System.out.println("First name, Last name, Email, Password, Membership, User ID");
-                viewFile("userdata.csv");
+                viewFile("userdata.txt");
 
                 break;
             case (2):
-                deleteElement("userdata.csv");
+                deleteElement("userdata.txt");
                 break;
             default:
                 System.out.println("Invalid input");
@@ -78,7 +65,7 @@ public class adminsite {
                 data = line.split(",");
 
                 System.out.println(Arrays.toString(data));
-                // System.out.println(data);
+
 
             }
         } catch (IOException e) {
