@@ -57,7 +57,7 @@ public class ProductsDemo{
                         int quantity = s.nextInt();
 
                         System.out.print("Enter product price: ");
-                        int price = s.nextInt();
+                        double price = s.nextInt();
 
                         String id = generateUUID();
                         Products products = new Products(id, category, name, quantity, price);
