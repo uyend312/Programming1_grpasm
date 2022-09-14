@@ -2,13 +2,13 @@ import java.io.*;
 
 public class Products implements Serializable{
 
-    private int id;
+    private String id;
     private String category;
     private String name;
     private int quantity;
-    private int price;
+    private double price;
 
-    public Products(int id, String category, String name, int quantity, int price) {
+    public Products(String id, String category, String name, int quantity, double price) {
         this.id = id;
         this.category = category;
         this.name = name;
@@ -17,8 +17,12 @@ public class Products implements Serializable{
 
     }
 
-    public int getId() {
+    public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getCategory() {
@@ -33,7 +37,7 @@ public class Products implements Serializable{
         return quantity;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 

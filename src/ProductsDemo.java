@@ -35,10 +35,8 @@ public class ProductsDemo{
             System.out.println("5.DELETE PRODUCTS");
             System.out.println("6.SORT PRODUCTS BY PRICE (Ascending)- On Screen only");
             System.out.println("7.SORT PRODUCTS BY PRICE (Ascending)- In file");
-            System.out.println("8.SORT PRODUCTS BY ID (Ascending)- On Screen only");
-            System.out.println("9.SORT PRODUCTS BY ID (Ascending)- In file");
-            System.out.println("10.SORT PRODUCTS BY QUANTITY (Ascending)- On Screen only");
-            System.out.println("11.SORT PRODUCTS BY QUANTITY (Ascending)- In file");
+            System.out.println("8.SORT PRODUCTS BY QUANTITY (Ascending)- On Screen only");
+            System.out.println("9.SORT PRODUCTS BY QUANTITY (Ascending)- In file");
             System.out.println("0.EXIT");
             System.out.println("Enter your option: ");
             option = s.nextInt();
@@ -47,8 +45,6 @@ public class ProductsDemo{
                     System.out.println("How many products do you want to add?");
                     int amount = s.nextInt();
                     for (int i = 0; i < amount; i++) {
-                        System.out.print("Enter Product ID:");
-                        int id = s.nextInt();
 
                         System.out.print("Enter category:");
                         String category = s1.next();
@@ -62,6 +58,7 @@ public class ProductsDemo{
                         System.out.print("Enter price:");
                         int price = s.nextInt();
 
+                        String id = generateUUID();
                         Products products = new Products(id, category, name, quantity, price);
                         al.add(products);
 
@@ -94,8 +91,8 @@ public class ProductsDemo{
                         al = (ArrayList<Products>) ois.readObject();
                         ois.close();
                         boolean found = false;
-                        System.out.println("Enter Product ID to Update:");
-                        int id = s1.nextInt();
+                        System.out.println("Copy and Enter Product ID to Update:");
+                         String id = s1.next();
                         System.out.println("_________________________________________________");
                         li = al.listIterator();
                         while (li.hasNext()) {
@@ -195,7 +192,7 @@ public class ProductsDemo{
                             @Override
                             public int compare(Products p1, Products p2) {
 
-                                return p1.getPrice()- p2.getPrice();
+                                return (int) (p1.getPrice()- p2.getPrice());
                             }
                         });
 
@@ -219,7 +216,7 @@ public class ProductsDemo{
                             @Override
                             public int compare(Products p1, Products p2) {
 
-                                return p1.getPrice()- p2.getPrice();
+                                return (int) (p1.getPrice()- p2.getPrice());
                             }
                         });
                         //This block of code will write the sorted data into file
@@ -237,59 +234,8 @@ public class ProductsDemo{
                         System.out.println("File Not Found...!!!");
                     }
                     break;
+
                 case 8:
-                    if (file.isFile()) {
-                        ois = new ObjectInputStream(new FileInputStream(file));
-                        al = (ArrayList<Products>) ois.readObject();
-                        ois.close();
-
-                        Collections.sort(al, new Comparator<Products>() {
-                            @Override
-                            public int compare(Products p1, Products p2) {
-
-                                return p1.getId()- p2.getId();
-                            }
-                        });
-
-                        System.out.println("_________________________________________________");
-                        //use ListIterator to iterate through the file
-                        li = al.listIterator();
-                        while (li.hasNext())
-                            System.out.println(li.next());
-                        System.out.println("_________________________________________________");
-                    } else {
-                        System.out.println("File Not Found...!!!");
-                    }
-                    break;
-                case 9:
-                    if (file.isFile()) {
-                        ois = new ObjectInputStream(new FileInputStream(file));
-                        al = (ArrayList<Products>) ois.readObject();
-                        ois.close();
-
-                        Collections.sort(al, new Comparator<Products>() {
-                            @Override
-                            public int compare(Products p1, Products p2) {
-
-                                return p1.getId()- p2.getId();
-                            }
-                        });
-                        //This block of code will write the sorted data into file
-                        oos = new ObjectOutputStream(new FileOutputStream(file));
-                        oos.writeObject(al);
-                        oos.close();
-
-                        System.out.println("_________________________________________________");
-                        //use ListIterator to iterate through the file
-                        li = al.listIterator();
-                        while (li.hasNext())
-                            System.out.println(li.next());
-                        System.out.println("_________________________________________________");
-                    } else {
-                        System.out.println("File Not Found...!!!");
-                    }
-                    break;
-                case 10:
                     if (file.isFile()) {
                         ois = new ObjectInputStream(new FileInputStream(file));
                         al = (ArrayList<Products>) ois.readObject();
@@ -313,7 +259,7 @@ public class ProductsDemo{
                         System.out.println("File Not Found...!!!");
                     }
                     break;
-                case 11:
+                case 9:
                     if (file.isFile()) {
                         ois = new ObjectInputStream(new FileInputStream(file));
                         al = (ArrayList<Products>) ois.readObject();
@@ -343,6 +289,10 @@ public class ProductsDemo{
                     break;
             }
         } while (option!=0);
+    }
+    public static String generateUUID () {
+        UUID uuid = UUID.randomUUID();
+        return uuid.toString();
     }
     public static void main(String[] args) throws Exception{
         ProductsDemo();
