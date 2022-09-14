@@ -80,6 +80,7 @@ public class myaccount {
                 }
                 stringBuffer.append("\n");
             }
+
             PrintWriter printWriter = new PrintWriter(new FileOutputStream("userdata.txt", false));
             printWriter.print(stringBuffer);
             printWriter.close();
@@ -87,4 +88,8 @@ public class myaccount {
             throw new RuntimeException(e);
         }
         return userStatus;
-    }}
+    }
+    public static void main(String[] args) throws IOException {
+        userAccount("abc@abc.com");
+    }
+}

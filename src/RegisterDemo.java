@@ -141,15 +141,12 @@ public class RegisterDemo {
     // membership
     public static String generateStatus (String userStatus) throws FileNotFoundException {
         userStatus = "New Member";
-
         return userStatus;
 
     }
 
-    public static double totalSpend ( double spending){
+    public static double totalSpend (double spending){
         spending = 0;
-
-
         return spending;
     }
     public static String ValidateAddress(String input)

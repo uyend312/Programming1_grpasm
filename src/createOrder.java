@@ -128,8 +128,8 @@ public class createOrder {
                         System.out.println("Cart is empty! Cannot generate your order request!");
                     }
                     else {
-                        String email = login.userEmail; //need this to work, didnt check yet
-                        //String email = "abc@abc.com";
+                        //String email = login.userEmail;
+                        String email = "dkgfdsk@ksdgks.com";
                         String line;
                         String[] data;
                         String userId = null;
@@ -137,8 +137,10 @@ public class createOrder {
                         String lastName = null;
                         String address = null;
                         String phone = null;
+                        String password = null;
                         String status = null;
                         String orderID = generateUUID();
+                        double spending = 0;
 
                         FileReader fr = new FileReader("userdata.txt");
                         BufferedReader br = new BufferedReader(fr);
@@ -158,10 +160,12 @@ public class createOrder {
                                 userId = data[0];
                                 firstName = data[1];
                                 lastName = data[2];
+                                //email = data 3
                                 address = data[4];
                                 phone = data[5];
-
+                                password = data[6];
                                 status = myaccount.newStatus(email, data[7]);
+                                spending = Double.parseDouble(data[8]);
                                 break;
                             }
                         }
@@ -201,6 +205,34 @@ public class createOrder {
                         oos.writeObject(newOrder);
                         oos.close();
 
+                        //update total spending
+                        double totalSpend = spending + totalPrice;
+
+                        Scanner sc = new Scanner(new File("userdata.txt"));
+                        //instantiating the StringBuffer class
+                        StringBuffer buffer = new StringBuffer();
+                        //Reading lines of the file and appending them to StringBuffer
+                        while (sc.hasNextLine()) {
+                            buffer.append(sc.nextLine()+System.lineSeparator());
+                        }
+                        String fileContents = buffer.toString();
+                        System.out.println("Contents of the file: "+fileContents);
+                        //closing the Scanner object
+                        sc.close();
+                        String oldLine = userId + ";" + firstName + ";" + lastName + ";" + email + ";"+ address +";" + phone + ";"
+                                +  password + ";" + status
+                                + ";" + spending;
+                        
+                        String newLine = userId + ";" + firstName + ";" + lastName + ";" + email + ";"+ address +";" + phone + ";"
+                                +  password + ";" + status
+                                + ";" + totalSpend;
+                        //Replacing the old line with new line
+                        fileContents = fileContents.replaceAll(oldLine, newLine);
+                        //instantiating the FileWriter class
+                        FileWriter writer = new FileWriter("userdata.txt");
+                        System.out.println("new data: "+fileContents);
+                        writer.append(fileContents);
+                        writer.flush();
                     }
                 default:
                     System.out.println("");
