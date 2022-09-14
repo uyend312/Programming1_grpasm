@@ -11,8 +11,9 @@ public class Main {
                 "s3904419, Phong Nguyen \n" +
                 "s3904418, Uyen Duong");
         System.out.println("<-------------------------------------->");
-        System.out.println("Welcome to our shop! Click 1 if you already have an account, or 2 to register.");
-        System.out.println("Login as an admin, choose 3.");
+        System.out.println("Welcome to our shop!\nEnter 1 to login if you already have an account.");
+        System.out.println("Enter 2 to register.");
+        System.out.println("Login as an admin, enter 3.");
 
         int userChoice = 0;
 

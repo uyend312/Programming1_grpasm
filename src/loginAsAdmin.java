@@ -16,7 +16,7 @@ public class loginAsAdmin {
     }
     public static void checkAdminValidate(String adminUserName, String adminPassword) throws IOException {
         String username = "admin";
-        String password = "1234";
+        String password = "admin";
         if ((adminUserName.equals(username))&&(adminPassword.equals(password)))
         {
             System.out.println("Welcome admin! ");

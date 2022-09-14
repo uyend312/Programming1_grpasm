@@ -27,7 +27,7 @@ public class createOrder {
         }
 
         do {
-            System.out.println("ENTER A NUMBER 1-5.\n");
+            System.out.println("ENTER A NUMBER 1-6.\n");
             System.out.println("1. VIEW ALL AVAILABLE PRODUCTS");
             System.out.println("2. ADD A PRODUCT TO CART");
             System.out.println("3. DELETE A PRODUCT IN CART");
