@@ -1,10 +1,13 @@
 import java.io.*;
 import java.util.*;
+
+import static java.lang.System.exit;
+
 public class adminsite {
     public static void adminModify() throws Exception {
         Scanner sc = new Scanner(System.in);
         System.out.println("Select 1 to view information of products\nSelect 2 to view information of orders\n" +
-                "Select 3 to view information of members\nSelect 4 to cancel");
+                "Select 3 to view information of members\nSelect 4 to go back\nSelect 5 to end");
         int admSelect = sc.nextInt();
 
         switch (admSelect) {
@@ -21,8 +24,11 @@ public class adminsite {
             case (3):
                 viewMembersInformation();
                 break;
-            case(4):
+            case(5):
+                exit(0);
                 break;
+            case 4:
+                adminModify();
             default:
                 System.out.println("Invalid input");
                 break;
@@ -49,10 +55,13 @@ public class adminsite {
                 System.out.println(li.next());
             System.out.println("_________________________________________________");
         }
+        System.out.println("Would you like to continue with the selection? Press 5 to end if you would like to stop");
+        adminsite.adminModify();
     }
     public static void viewMembersInformation() throws Exception {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Select 1 to view members information \nSelect 2 to delete members");
+        System.out.println("Select 1 to view members information \nSelect 2 to delete members\nSelect 3 to go back" +
+                "to the main selection");
         int a = sc.nextInt();
 
         switch (a) {
@@ -64,12 +73,17 @@ public class adminsite {
             case (2):
                 deleteElement("userdata.txt");
                 break;
+            case 3:
+                adminModify();
             default:
-                System.out.println("Invalid input");
+                System.out.println("Invalid input, try again");
+
+                adminsite.viewMembersInformation();
         }
+        System.out.println("Would you like to continue with the selection? Press 5 to end if you would like to stop");
+        adminsite.adminModify();
     }
-    public static void viewFile(String filename)
-    {
+    public static void viewFile(String filename) throws Exception {
         try {
             String line;
             String[] data;
@@ -86,6 +100,8 @@ public class adminsite {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("Would you like to continue with the selection? Press 5 to end if you would like to stop");
+        adminsite.adminModify();
     }
     public static void deleteElement(String filename) throws Exception {
         System.out.println("Enter the ID to search");
@@ -128,6 +144,7 @@ public class adminsite {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("Would you like to continue with the selection? Press 5 to end if you would like to stop");
         adminsite.adminModify();
     }
 }
