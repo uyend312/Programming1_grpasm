@@ -39,7 +39,7 @@ public class ProductsDemo{
             System.out.println("7. SORT PRODUCTS BY PRICE (Ascending)- In file");
             System.out.println("8. SORT PRODUCTS BY QUANTITY (Ascending)- On Screen only");
             System.out.println("9. SORT PRODUCTS BY QUANTITY (Ascending)- In file");
-            System.out.println("0. EXIT");
+            System.out.println("0. EXIT TO PREVIOUS PAGE");
             System.out.println("Enter your option: ");
             //validate integer input so that program not crash
             while (!s.hasNextInt()) {
@@ -303,6 +303,9 @@ public class ProductsDemo{
                     } else {
                         System.out.println("File Not Found...!!!");
                     }
+                    break;
+                case 0:
+                    adminsite.adminModify();
                     break;
             }
         } while (option!=0);
