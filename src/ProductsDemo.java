@@ -17,7 +17,7 @@ public class ProductsDemo{
         //check for existing file to load data to arraylist
         if (file.isFile()) {
             ois = new ObjectInputStream(new FileInputStream(file));
-            al =(ArrayList<Products>) ois.readObject();
+            al = (ArrayList<Products>) ois.readObject();
             ois.close();
             System.out.println("_________________________________________________");
             System.out.println("Product List:");

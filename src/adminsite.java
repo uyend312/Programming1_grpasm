@@ -1,15 +1,11 @@
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.ListIterator;
-import java.util.Scanner;
+import java.util.*;
 public class adminsite {
-    public static void adminModify() throws IOException, ClassNotFoundException {
+    public static void adminModify() throws Exception {
         Scanner sc = new Scanner(System.in);
         System.out.println("Select 1 to view information of products\nSelect 2 to view information of orders\n" +
                 "Select 3 to view information of members\nSelect 4 to cancel");
         int admSelect = sc.nextInt();
-
 
         switch (admSelect) {
             case (1):
@@ -29,12 +25,13 @@ public class adminsite {
                 break;
             default:
                 System.out.println("Invalid input");
+                break;
         }
     }
 
-    public static void viewOrdersInformation() throws IOException, ClassNotFoundException {
+    public static void viewOrdersInformation() throws Exception {
         File file = new File("order.txt");
-        ArrayList<Order> al;
+        List<Order> al;
         ObjectOutputStream oos;
         ObjectInputStream ois;
         ListIterator<Order> li;
@@ -42,10 +39,10 @@ public class adminsite {
         //check for existing file to load data to arraylist
         if (file.isFile()) {
             ois = new ObjectInputStream(new FileInputStream(file));
-            al =(ArrayList<Order>) ois.readObject();
+            al = (List<Order>) ois.readObject();
             ois.close();
             System.out.println("_________________________________________________");
-            System.out.println("Order List:");
+            System.out.println("Product List:");
             //use ListIterator to iterate through the file
             li = al.listIterator();
             while (li.hasNext())
@@ -53,7 +50,7 @@ public class adminsite {
             System.out.println("_________________________________________________");
         }
     }
-    public static void viewMembersInformation() throws IOException, ClassNotFoundException {
+    public static void viewMembersInformation() throws Exception {
         Scanner sc = new Scanner(System.in);
         System.out.println("Select 1 to view members information \nSelect 2 to delete members");
         int a = sc.nextInt();
@@ -80,7 +77,7 @@ public class adminsite {
             BufferedReader br = new BufferedReader(fr);
 
             while ((line = br.readLine()) != null) {
-                data = line.split(",");
+                data = line.split(";");
 
                 System.out.println(Arrays.toString(data));
 
@@ -90,7 +87,7 @@ public class adminsite {
             throw new RuntimeException(e);
         }
     }
-    public static void deleteElement(String filename) throws IOException, ClassNotFoundException {
+    public static void deleteElement(String filename) throws Exception {
         System.out.println("Enter the ID to search");
         Scanner sc = new Scanner(System.in);
         String id = sc.nextLine();

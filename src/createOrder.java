@@ -130,7 +130,7 @@ public class createOrder {
                     }
                     else {
                         //String email = login.userEmail;
-                        String email = "dkgfdsk@ksdgks.com";
+                        String email = "abc@abc.com";
                         String line;
                         String[] data;
                         String userId = null;
@@ -202,7 +202,7 @@ public class createOrder {
                         Order newOrder = new Order(orderID, userId, firstName, lastName, address, phone, status, "Waiting", cart);
                         order.add(newOrder);
                         oos = new ObjectOutputStream(new FileOutputStream(orderFile));
-                        oos.writeObject(newOrder);
+                        oos.writeObject(order);
                         oos.close();
 
                         //update total spending
