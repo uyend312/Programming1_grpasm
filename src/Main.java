@@ -3,6 +3,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        mainPage();
+    }
+    public static void mainPage() throws Exception {
         System.out.println("\nCOSC2081 GROUP ASSIGNMENT\n" +
                 "STORE ORDER MANAGEMENT SYSTEM\n" +
                 "Instructor: Mr. Minh Vu\n" +
@@ -19,7 +22,7 @@ public class Main {
 
         int userChoice = 0;
 
-        while(userChoice != 1 && userChoice != 2 && userChoice != 3 && userChoice != 4) {
+        while (userChoice != 1 && userChoice != 2 && userChoice != 3 && userChoice != 4) {
             System.out.println("Enter your option 1-4:");
             Scanner scanner = new Scanner(System.in);
 
@@ -30,7 +33,7 @@ public class Main {
             }
 
             userChoice = scanner.nextInt();
-            switch(userChoice) {
+            switch (userChoice) {
                 case 1:
                     customer.customer();
                 case 2:
@@ -45,7 +48,5 @@ public class Main {
                 default:
                     System.out.println("Invalid input " + userChoice);
             }
-        }
-        
-    }
-}
+
+        }}}

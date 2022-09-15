@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.UUID;
 
 public class RegisterDemo {
-    public static void registerMember() throws IOException {
+    public static void registerMember() throws Exception {
 
         register rgs = new register();
         Scanner scanner = new Scanner(System.in);
@@ -37,10 +37,14 @@ public class RegisterDemo {
 
         rgs.setTotalSpending(totalSpend(rgs.getTotalSpending()));
         //user confirmation
-        System.out.println("All correct? Click 1 to finish your registration, 2 to cancel");
-        int userChoice = scanner.nextInt();
+        System.out.println("All correct? Click 1 to finish your registration, 2 to re-correct some of your information"+
+                " or any other keys to cancel registration and go back to the main page");
+        String userChoice = scanner.next();
         //store their information if they agreed
-        if (userChoice == 1) {
+        while (!userChoice.matches("[0-9]+"))
+        { System.out.println("Invalid input");
+            userChoice = scanner.next();}
+        if (userChoice.equals("1")){
             //generate userID
             rgs.setUserID(generateUID());
             //store data
@@ -60,11 +64,14 @@ public class RegisterDemo {
             System.out.println("Thank you! You have register to our site");
             System.out.println("Now you can log in");
             MemberLogin.memberLogin();
-        } else if (userChoice == 2) {
-            System.out.println("Thank you for visiting our site");
-        }
+        } else if (userChoice.equals("2")) {
 
-    }
+            registerMember();
+        }
+        else {
+            System.out.println("Thank you for visiting our site");
+            Main.mainPage();
+        }}
 
     //method
     public static String checkValidName (String input){

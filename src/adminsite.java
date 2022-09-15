@@ -8,29 +8,33 @@ public class adminsite {
         Scanner sc = new Scanner(System.in);
         System.out.println("Select 1 to view information of products\nSelect 2 to view information of orders\n" +
                 "Select 3 to view information of members\nSelect 4 to go back\nSelect 5 to end");
-        int admSelect = sc.nextInt();
+        String admSelect = sc.next();
+        while (!admSelect.matches("[1-5]"))
+        { System.out.println("Invalid input, try again");
+            admSelect = sc.next();}
 
         switch (admSelect) {
-            case (1):
+            case ("1"):
                 try {
                     ProductsDemo.ProductsDemo();
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
                 break;
-            case (2):
+            case ("2"):
                 viewOrdersInformation();
                 break;
-            case (3):
+            case ("3"):
                 viewMembersInformation();
                 break;
-            case(5):
+            case("5"):
                 exit(0);
                 break;
-            case 4:
+            case ("4"):
                 adminModify();
             default:
-                System.out.println("Invalid input");
+                System.out.println("Invalid input, try again");
+                adminModify();
                 break;
         }
     }
