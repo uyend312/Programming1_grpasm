@@ -62,10 +62,18 @@ public class ProductsDemo{
 
                         System.out.print("Enter quantity: ");
                         int quantity = s.nextInt();
+                        while (!s.hasNextInt()) {
+                            System.out.println("INVALID INPUT!\nPlease enter a number: ");
 
+                            s.next();
+                        }
                         System.out.print("Enter product price: ");
-                        double price = s.nextInt();
+                        double price = s.nextDouble();
+                        while (!s.hasNextDouble()) {
+                            System.out.println("INVALID INPUT!\nPlease enter a number: ");
 
+                            s.next();
+                        }
                         String id = generateUUID();
                         Products products = new Products(id, category, name, quantity, price);
                         al.add(products);
