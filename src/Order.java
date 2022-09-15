@@ -9,7 +9,8 @@ public class Order implements Serializable {
     private String lastName;
     private String address;
     private String phone;
-    private String status;
+    private String memberStatus;
+    private String orderStatus;
     private ArrayList<Products> cart;
 
     public String getOrderID() {
@@ -61,11 +62,11 @@ public class Order implements Serializable {
     }
 
     public String getStatus() {
-        return status;
+        return memberStatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus(String memberStatus) {
+        this.memberStatus = memberStatus;
     }
 
     public ArrayList<Products> getCart() {
@@ -76,14 +77,15 @@ public class Order implements Serializable {
         this.cart = cart;
     }
 
-    public Order(String orderID, String userId, String firstName, String lastName, String address, String phone, String status, ArrayList<Products> cart) {
+    public Order(String orderID, String userId, String firstName, String lastName, String address, String phone, String memberStatus, String orderStatus, ArrayList<Products> cart) {
         this.orderID = orderID;
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.phone = phone;
-        this.status = status;
+        this.memberStatus = memberStatus;
+        this.orderStatus = orderStatus;
         this.cart = cart;
     }
 
@@ -96,7 +98,7 @@ public class Order implements Serializable {
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
-                ", status='" + status + '\'' +
+                ", memberStatus='" + memberStatus + '\'' +
                 ", cart=" + cart +
                 '}';
     }

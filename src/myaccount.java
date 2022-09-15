@@ -1,9 +1,11 @@
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.ListIterator;
 
 public class myaccount {
 
-    public static void userAccount(String userEmail) throws IOException {
+    public static void userAccount(String userEmail) throws Exception {
         try {
             String line;
             String[] data;
@@ -13,6 +15,19 @@ public class myaccount {
             }
             FileReader fr = new FileReader("userdata.txt");
             BufferedReader br = new BufferedReader(fr);
+
+            //new
+            File orderFile = new File("order.txt");
+            ArrayList<Order> orderList = new ArrayList<>();
+            ObjectOutputStream oos;
+            ObjectInputStream ois;
+            ListIterator<Order> li;
+            //deserialize file if file exists
+            if (orderFile.isFile()) {
+                ois = new ObjectInputStream(new FileInputStream(orderFile));
+                orderList = (ArrayList<Order>) ois.readObject();
+                ois.close();
+            }
 
             while ((line = br.readLine()) != null) {
                 data = line.split(";");
@@ -89,7 +104,7 @@ public class myaccount {
         }
         return userStatus;
     }
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         userAccount("abc@abc.com");
     }
 }

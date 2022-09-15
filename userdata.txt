@@ -2,7 +2,7 @@
 b42722c6-42e8-422a-b1cd-c30a3ea1c91d;dfha;dhgsd;dfAF@DGSG.com;28923/3/4 khu pho 6;0812741;12345678;New Member;0.0
 9fd9def9-5735-42dc-9903-1bb37fd38b7c;dfas;ajdf;djfgfd@dhgjs.com;123 abc ;083298131;12345678;New Member;0.0
 5019716b-f292-42d2-8779-50ce0621721e;dsgs;dsgsdg;sdgsg@gsd.com;123f hdfa;091241824;123456789;New Member;0.0
-336c91e2-09a1-4e98-8e02-5c6ada1206fa;hdgsdg;dshfgsg;dkgfdsk@ksdgks.com;asjdfgJKAF 123;081204712;123456789;New Member;1.15E7
+336c91e2-09a1-4e98-8e02-5c6ada1206fa;hdgsdg;dshfgsg;dkgfdsk@ksdgks.com;asjdfgJKAF 123;081204712;123456789;Gold Member;1.735E7
 7aeb3cd3-d2cf-4bf4-aa63-1849f59aa48e;dgasdg;sdgsdg;sdgas@dsgas.com;123 sdad;012841024;123456789;New Member;0.0
 0f132e68-c0be-45b6-a95b-87d61bf008c6;dhkag;ashfkaF;SJAFGAKSF@dgdsh.com;adfaF 123;012183103;123456789;New Member;0.0
 b19b8d4d-8892-41f0-aaf3-0252c492892f;fdsfgs;dsgsad;dsgas@afsa.com;12873 asfhaf;09127410;123456789;New Member;0.0

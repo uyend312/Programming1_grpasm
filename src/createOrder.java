@@ -20,6 +20,7 @@ public class createOrder {
         ObjectInputStream ois;
         ListIterator<Products> li;
 
+        //deserialize file if file exists
         if (file.isFile()) {
             ois = new ObjectInputStream(new FileInputStream(file));
             productList = (ArrayList<Products>) ois.readObject();
@@ -195,11 +196,10 @@ public class createOrder {
 
                         System.out.println("Your total after discount is: " + totalPrice + "VND.");
                         System.out.println("\nGenerating order...");
-                        System.out.println("SUCCESS!");
                         System.out.println("_________________________________________________");
 
                         //write new order into file
-                        Order newOrder = new Order(orderID, userId, firstName, lastName, address, phone, status, cart);
+                        Order newOrder = new Order(orderID, userId, firstName, lastName, address, phone, status, "Waiting", cart);
                         order.add(newOrder);
                         oos = new ObjectOutputStream(new FileOutputStream(orderFile));
                         oos.writeObject(newOrder);
@@ -216,9 +216,9 @@ public class createOrder {
                             buffer.append(sc.nextLine()+System.lineSeparator());
                         }
                         String fileContents = buffer.toString();
-                        System.out.println("Contents of the file: "+fileContents);
                         //closing the Scanner object
                         sc.close();
+                        //update total spending
                         String oldLine = userId + ";" + firstName + ";" + lastName + ";" + email + ";"+ address +";" + phone + ";"
                                 +  password + ";" + status
                                 + ";" + spending;
@@ -230,12 +230,15 @@ public class createOrder {
                         fileContents = fileContents.replaceAll(oldLine, newLine);
                         //instantiating the FileWriter class
                         FileWriter writer = new FileWriter("userdata.txt");
-                        System.out.println("new data: "+fileContents);
                         writer.append(fileContents);
                         writer.flush();
                     }
+                    break;
                 default:
-                    System.out.println("");
+                    if (option != 0) {
+                        System.out.println("Option not available.");
+                    }
+                    break;
             }
         } while (option != 0);
     }
