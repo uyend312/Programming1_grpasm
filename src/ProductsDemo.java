@@ -29,6 +29,7 @@ public class ProductsDemo{
         }
 
         do {
+            System.out.println("PLEASE CHOOSE OPTIONS FROM 0-9 BELOW");
             System.out.println("1. ADD PRODUCTS");
             System.out.println("2. SHOW PRODUCTS");
             System.out.println("3. UPDATE PRODUCTS");
@@ -40,7 +41,13 @@ public class ProductsDemo{
             System.out.println("9. SORT PRODUCTS BY QUANTITY (Ascending)- In file");
             System.out.println("0. EXIT");
             System.out.println("Enter your option: ");
-            option = s.nextInt();
+            //validate integer input so that program not crash
+            while (!s.hasNextInt()) {
+                System.out.println("INVALID INPUT!\nChoose an option 0-9: ");
+
+                s.next();
+            }
+                option = s.nextInt();
             switch (option) {
                 case 1:
                     System.out.println("How many products do you want to add?");

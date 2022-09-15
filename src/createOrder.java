@@ -39,7 +39,7 @@ public class createOrder {
 
             //validate input must be integer in range 0-5
             while (!s.hasNextInt()) {
-                System.out.println("INVALID INPUT!\nChoose an option 0-5: ");
+                System.out.println("INVALID INPUT!\nChoose an option 0-6: ");
                 s.next(); // this is important!
 
             }

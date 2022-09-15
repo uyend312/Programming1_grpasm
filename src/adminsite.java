@@ -11,7 +11,11 @@ public class adminsite {
 
         switch (admSelect) {
             case (1):
-                viewProductInformation();
+                try {
+                    ProductsDemo.ProductsDemo();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             case (2):
                 viewOrdersInformation();
@@ -23,12 +27,7 @@ public class adminsite {
                 System.out.println("Invalid input");
         }
     }
-    public static void viewProductInformation()
-    {
-        System.out.println("Product ID, Category, Name, Quantity, Price (VND)");
-        viewFile("Products.txt");
 
-    }
     public static void viewOrdersInformation()
     {
         viewFile("order.txt");
