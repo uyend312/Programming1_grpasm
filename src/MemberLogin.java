@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
@@ -33,27 +32,10 @@ public class MemberLogin {
                 if (data[3].equals(userEmail) && data[6].equals(userPassword)) {
 
                     System.out.println("Login success, Welcome " + data[1] + " " + data[2]);
-
-                    System.out.println("Go to your account page, press 1\nGo to main page, press 2");
-                    Scanner scanner = new Scanner(System.in);
-                    String userChoice = scanner.nextLine();
-                    switch (userChoice) {
-                        // Go to user account
-                        case ("1"):
-                            myaccount.userAccount(userEmail);
-                            System.out.println("_________________________________________________");
-                            break;
-                        // Go to the main page to shop
-                        case ("2"):
+                    System.out.println("Now you are able to place order");
+                    System.out.println("_________________________________________________");
                           createOrder.createOrder();
                             System.out.println("_________________________________________________");
-                      //      ProductsDemoForUsers.ProductsDemoForUsers();
-                            break;
-                        default:
-                            System.out.println("Invalid input");
-
-                    }
-
                     return;
                 }
             }
