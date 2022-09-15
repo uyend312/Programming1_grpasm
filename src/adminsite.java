@@ -7,7 +7,7 @@ public class adminsite {
     public static void adminModify() throws Exception {
         Scanner sc = new Scanner(System.in);
         System.out.println("Select 1 to view information of products\nSelect 2 to view information of orders\n" +
-                "Select 3 to view information of members\nSelect 4 to go back\nSelect 5 to end");
+                "Select 3 to view information of members\nSelect 4 to log out admin\nSelect 5 to end");
         String admSelect = sc.next();
         while (!admSelect.matches("[1-5]"))
         { System.out.println("Invalid input, try again");
@@ -31,7 +31,7 @@ public class adminsite {
                 exit(0);
                 break;
             case ("4"):
-                adminModify();
+                Main.mainPage();
             default:
                 System.out.println("Invalid input, try again");
                 adminModify();
@@ -84,8 +84,6 @@ public class adminsite {
 
                 adminsite.viewMembersInformation();
         }
-        System.out.println("Would you like to continue with the selection? Press 5 to end if you would like to stop");
-        adminsite.adminModify();
     }
     public static void viewFile(String filename) throws Exception {
         try {
