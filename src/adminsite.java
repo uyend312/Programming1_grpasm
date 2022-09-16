@@ -7,9 +7,10 @@ public class adminsite {
     public static void adminModify() throws Exception {
         Scanner sc = new Scanner(System.in);
         System.out.println("Select 1 to view information of products\nSelect 2 to view information of orders\n" +
-                "Select 3 to view information of members\nSelect 4 to log out admin\nSelect 5 to end");
+                "Select 3 to view information of members\nSelect 4 to log out admin\nSelect 5 to see income\nSelect 6 to " +
+                "end");
         String admSelect = sc.next();
-        while (!admSelect.matches("[1-5]"))
+        while (!admSelect.matches("[1-6]"))
         { System.out.println("Invalid input, try again");
             admSelect = sc.next();}
 
@@ -27,17 +28,42 @@ public class adminsite {
             case ("3"):
                 viewMembersInformation();
                 break;
-            case("5"):
+            case("6"):
                 exit(0);
                 break;
             case ("4"):
                 Main.mainPage();
+                break;
+            case("5"):
+                totalIncome();
+                break;
             default:
                 System.out.println("Invalid input, try again");
                 adminModify();
                 break;
         }
     }
+    public static void totalIncome()
+    {
+       double sumCol=0;
+        BufferedReader reader;
+        try {
+
+            reader = new BufferedReader(new FileReader("userdata.txt"));
+
+            String line;
+            String[] columns;
+
+            while ((line = reader.readLine()) != null) {
+                columns = line.split(";");
+                sumCol += Double.parseDouble(columns[8]);
+
+            }
+            System.out.println("Total income is: "+sumCol);
+
+        } catch (Exception ignored) {
+
+        }}
 
     public static void viewOrdersInformation() throws Exception {
         Scanner sc1 = new Scanner(System.in);
@@ -47,7 +73,7 @@ public class adminsite {
         ObjectInputStream ois;
         ListIterator<Order> li;
         System.out.println("Select 1 to view order and 2 to update order status");
-       
+
         String choice = sc1.next();
         //check input
         while (!choice.matches("[1-2]"))
@@ -117,8 +143,8 @@ public class adminsite {
                 }
                 break;
         }
-                System.out.println("Would you like to continue with the selection? Press 5 to end if you would like to stop");
-                adminsite.adminModify();
+        System.out.println("Would you like to continue with the selection? Press 6 to end if you would like to stop");
+        adminsite.adminModify();
     }
 
     public static void viewMembersInformation() throws Exception {
@@ -132,7 +158,7 @@ public class adminsite {
         }
         switch (a) {
             case ("1"):
-            System.out.println("ID, First name, Last name, Email, Address, Phone Number, Password, Membership, Total Spending");
+                System.out.println("ID, First name, Last name, Email, Address, Phone Number, Password, Membership, Total Spending");
                 viewFile("userdata.txt");
                 break;
             case ("2"):
@@ -144,7 +170,7 @@ public class adminsite {
                 System.out.println("Invalid input, try again");
                 adminsite.viewMembersInformation();
         }
-        System.out.println("Would you like to continue with the selection? Press 5 to end if you would like to stop");
+        System.out.println("Would you like to continue with the selection? Press 6 to end if you would like to stop");
         adminsite.adminModify();
     }
     public static void viewFile(String filename) throws Exception {
@@ -164,7 +190,7 @@ public class adminsite {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Would you like to continue with the selection? Press 5 to end if you would like to stop");
+        System.out.println("Would you like to continue with the selection? Press 6 to end if you would like to stop");
         adminsite.adminModify();
     }
     public static void deleteElement(String filename) throws Exception {
@@ -208,7 +234,7 @@ public class adminsite {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Would you like to continue with the selection? Press 5 to end if you would like to stop");
+        System.out.println("Would you like to continue with the selection? Press 6 to end if you would like to stop");
         adminsite.adminModify();
     }
 }
