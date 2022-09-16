@@ -73,7 +73,7 @@ public class adminsite {
         }
         switch (a) {
             case ("1"):
-            System.out.println("ID, First name, Last name, Email, Address, Phone Number, Password, Membership", "Total Spending");
+            System.out.println("ID, First name, Last name, Email, Address, Phone Number, Password, Membership, Total Spending");
                 viewFile("userdata.txt");
                 break;
             case ("2"):
