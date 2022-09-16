@@ -122,7 +122,7 @@ public class ProductsDemo{
                                 System.out.print("Enter new product quantity: ");
                                 int quantity = s.nextInt();
                                 System.out.print("Enter new product price: ");
-                                int price = s.nextInt();
+                                double price = s.nextDouble();
                                 li.set(new Products(id, category, name, quantity, price));
                                 found = true;
                             }
