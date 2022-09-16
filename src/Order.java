@@ -99,6 +99,7 @@ public class Order implements Serializable {
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
                 ", memberStatus='" + memberStatus + '\'' +
+                ", orderStatus='" + orderStatus + '\'' +
                 ", cart=" + cart +
                 '}';
     }

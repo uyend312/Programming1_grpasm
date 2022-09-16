@@ -114,7 +114,7 @@ public class ProductsDemo{
                         li = al.listIterator();
                         while (li.hasNext()) {
                             Products p = li.next();
-                            if (p.getId() == id) {
+                            if (p.getId().equals(id)) {
                                 System.out.print("Enter new product category: ");
                                 String category = s1.next();
                                 System.out.println("Enter new product name: ");

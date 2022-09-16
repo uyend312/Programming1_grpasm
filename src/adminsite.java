@@ -40,28 +40,80 @@ public class adminsite {
     }
 
     public static void viewOrdersInformation() throws Exception {
+        Scanner sc1 = new Scanner(System.in);
         File file = new File("order.txt");
         List<Order> al;
         ObjectOutputStream oos;
         ObjectInputStream ois;
         ListIterator<Order> li;
+        System.out.println("Select 1 to view order and 2 to update order status");
+        String choice = sc1.next();
+        switch (choice) {
 
-        //check for existing file to load data to arraylist
-        if (file.isFile()) {
-            ois = new ObjectInputStream(new FileInputStream(file));
-            al = (List<Order>) ois.readObject();
-            ois.close();
-            System.out.println("_________________________________________________");
-            System.out.println("Product List:");
-            //use ListIterator to iterate through the file
-            li = al.listIterator();
-            while (li.hasNext())
-                System.out.println(li.next());
-            System.out.println("_________________________________________________");
+            case ("1"):
+                //check for existing file to load data to arraylist
+                if (file.isFile()) {
+                    ois = new ObjectInputStream(new FileInputStream(file));
+                    al = (List<Order>) ois.readObject();
+                    ois.close();
+                    System.out.println("_________________________________________________");
+                    System.out.println("Product List:");
+                    //use ListIterator to iterate through the file
+                    li = al.listIterator();
+                    while (li.hasNext())
+                        System.out.println(li.next());
+                    System.out.println("_________________________________________________");
+                    break;
+                }
+            case "2":
+                if (file.isFile()) {
+                    ois = new ObjectInputStream(new FileInputStream(file));
+                    al = (List<Order>) ois.readObject();
+                    ois.close();
+                    boolean found = false;
+                    System.out.println("Copy and Enter customer ID to Update the order status:");
+                    String id = sc1.next();
+                    System.out.println("_________________________________________________");
+                    //use ListIterator to iterate through the file
+                    li = al.listIterator();
+                    while (li.hasNext()) {
+                        Order o = li.next();
+                        if (o.getOrderID().equals(id)) {
+                            String userId = o.getUserId();
+                            String firstName = o.getFirstName();
+                            String lastName = o.getLastName();
+                            String address = o.getAddress();
+                            String phone = o.getPhone();
+                            String status = o.getStatus();
+                            System.out.println("Enter order status:");
+                            String orderStatus = sc1.next();
+                            String orderID = o.getOrderID();
+                            ArrayList<Products> cart = o.getCart();
+                            li.set(new Order(orderID, userId, firstName, lastName, address, phone, status, orderStatus, cart));
+                            System.out.println("_________________________________________________");
+                            found = true;
+                        }
+                    }
+                    if (found) {
+                        oos = new ObjectOutputStream(new FileOutputStream(file));
+                        oos.writeObject(al);
+                        oos.close();
+                        System.out.println("Record is successfully updated...!");
+                    } else {
+                        System.out.println("Records Not Found..!!!");
+                    }
+
+
+                    System.out.println("_________________________________________________");
+                } else {
+                    System.out.println("File Not Found...!!!");
+                }
+                break;
         }
-        System.out.println("Would you like to continue with the selection? Press 5 to end if you would like to stop");
-        adminsite.adminModify();
+                System.out.println("Would you like to continue with the selection? Press 5 to end if you would like to stop");
+                adminsite.adminModify();
     }
+
     public static void viewMembersInformation() throws Exception {
         Scanner sc = new Scanner(System.in);
         System.out.println("Select 1 to view members information \nSelect 2 to delete members\nSelect 3 to go back" +
