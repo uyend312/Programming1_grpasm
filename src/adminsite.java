@@ -104,7 +104,7 @@ public class adminsite {
                     al = (List<Order>) ois.readObject();
                     ois.close();
                     boolean found = false;
-                    System.out.println("Copy and Enter customer ID to Update the order status:");
+                    System.out.println("Copy and Enter order ID to Update the order status:");
                     String id = sc1.next();
                     System.out.println("_________________________________________________");
                     //use ListIterator to iterate through the file
