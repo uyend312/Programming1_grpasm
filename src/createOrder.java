@@ -15,27 +15,28 @@ public class createOrder {
         File orderFile = new File("order.txt");
         ArrayList<Products> productList = new ArrayList<>();
         ArrayList<Products> cart = new ArrayList<>();
-        ArrayList<Products> test = new ArrayList<>();
         ArrayList<Order> order = new ArrayList<>();
         ObjectOutputStream oos;
-        ObjectInputStream ois;
+        ObjectInputStream ois1;
+        ObjectInputStream ois2;
         ListIterator<Products> li;
 
 
         //deserialize file if file exists
         if (file.isFile()) {
-            ois = new ObjectInputStream(new FileInputStream(file));
-            productList = (ArrayList<Products>) ois.readObject();
-            ois.close();
+            ois1 = new ObjectInputStream(new FileInputStream(file));
+            productList = (ArrayList<Products>) ois1.readObject();
+            ois1.close();
 
-            ois = new ObjectInputStream(new FileInputStream(orderFile));
-            order = (ArrayList<Order>) ois.readObject();
-            ois.close();
+        }
+        if (orderFile.isFile()) {
+            ois2 = new ObjectInputStream(new FileInputStream(orderFile));
+            order = (ArrayList<Order>) ois2.readObject();
+            ois2.close();
         }
 
         do {
-
-            System.out.println("ENTER A NUMBER 1-6.\n");
+            System.out.println("ENTER A NUMBER 1-9.\n");
             System.out.println("1. DISPLAY ACCOUNT INFORMATION");
             System.out.println("2. VIEW ORDER HISTORY");
             System.out.println("3. DISPLAY ALL AVAILABLE PRODUCTS");
@@ -50,7 +51,7 @@ public class createOrder {
 
             //validate input must be integer in range 0-5
             while (!s.hasNextInt()) {
-                System.out.println("INVALID INPUT!\nChoose an option 0-6: ");
+                System.out.println("INVALID INPUT!\nChoose an option 1-9, or 0 to end program: ");
                 s.next(); // this is important!
 
             }
@@ -65,6 +66,7 @@ public class createOrder {
                     if (orderFile.isFile()) {
                         //find user ID to print orders having that ID
                         String email = login.userEmail;
+                        //String email = "asfasf@ahfa.com";
                         String line;
                         String[] data;
                         String userId = null;
@@ -84,7 +86,9 @@ public class createOrder {
                         found = false;
                         ListIterator<Order> orderListIterator = order.listIterator();
                         while (orderListIterator.hasNext()) {
+
                             ord = orderListIterator.next();
+                            System.out.println(ord);
                             if ((ord.getOrderID()).equals(userId)) {
                                 System.out.println(ord);
                                 found = true;
@@ -179,8 +183,8 @@ public class createOrder {
                         System.out.println("Cart is empty! Cannot generate your order request!");
                     }
                     else {
-                        //String email = login.userEmail;
-                        String email = "abc@abc.com";
+                        String email = login.userEmail;
+                        //String email = "asfasf@ahfa.com";
                         String line;
                         String[] data;
                         String userId = null;
@@ -251,7 +255,7 @@ public class createOrder {
                         //write new order into file
                         Order newOrder = new Order(orderID, userId, firstName, lastName, address, phone, status, "Waiting", cart);
                         order.add(newOrder);
-                        oos = new ObjectOutputStream(new FileOutputStream(orderFile));
+                        oos = new ObjectOutputStream(new FileOutputStream(orderFile, true));
                         oos.writeObject(order);
                         oos.close();
                         //update total spending
