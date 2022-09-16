@@ -47,7 +47,14 @@ public class adminsite {
         ObjectInputStream ois;
         ListIterator<Order> li;
         System.out.println("Select 1 to view order and 2 to update order status");
+       
         String choice = sc1.next();
+        //check input
+        while (!choice.matches("[1-2]"))
+        {
+            System.out.println("Invalid input, try again");
+            choice = sc1.next();
+        }
         switch (choice) {
 
             case ("1"):
