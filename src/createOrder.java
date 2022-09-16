@@ -129,8 +129,8 @@ public class createOrder {
                         System.out.println("Cart is empty! Cannot generate your order request!");
                     }
                     else {
-                        String email = login.userEmail;
-//                        String email = "abc@abc.com";
+                        //String email = login.userEmail;
+                        String email = "abc@abc.com";
                         String line;
                         String[] data;
                         String userId = null;
@@ -140,7 +140,6 @@ public class createOrder {
                         String phone = null;
                         String password = null;
                         String status = null;
-                        String orderStatus = null;
                         String orderID = generateUUID();
                         double spending = 0;
 
@@ -168,7 +167,6 @@ public class createOrder {
                                 password = data[6];
                                 status = myaccount.newStatus(email, data[7]);
                                 spending = Double.parseDouble(data[8]);
-                                orderStatus = "Waiting";
                                 break;
                             }
                         }
@@ -201,9 +199,8 @@ public class createOrder {
                         System.out.println("_________________________________________________");
 
                         //write new order into file
-                        Order newOrder = new Order(orderID, userId, firstName, lastName, address, phone, status, orderStatus, cart);
+                        Order newOrder = new Order(orderID, userId, firstName, lastName, address, phone, status, "Waiting", cart);
                         order.add(newOrder);
-                        System.out.println();
                         oos = new ObjectOutputStream(new FileOutputStream(orderFile));
                         oos.writeObject(order);
                         oos.close();
@@ -225,7 +222,7 @@ public class createOrder {
                         String oldLine = userId + ";" + firstName + ";" + lastName + ";" + email + ";"+ address +";" + phone + ";"
                                 +  password + ";" + status
                                 + ";" + spending;
-                        
+
                         String newLine = userId + ";" + firstName + ";" + lastName + ";" + email + ";"+ address +";" + phone + ";"
                                 +  password + ";" + status
                                 + ";" + totalSpend;
