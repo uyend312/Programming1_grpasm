@@ -66,24 +66,27 @@ public class adminsite {
         Scanner sc = new Scanner(System.in);
         System.out.println("Select 1 to view members information \nSelect 2 to delete members\nSelect 3 to go back" +
                 "to the main selection");
-        int a = sc.nextInt();
-
+        String a = sc.next();
+        while (!a.matches("[1-3]")){
+            System.out.println("Invalid input, try again");
+            a = sc.next();
+        }
         switch (a) {
-            case (1):
-                System.out.println("First name, Last name, Email, Password, Membership, User ID");
+            case ("1"):
+            System.out.println("ID, First name, Last name, Email, Address, Phone Number, Password, Membership", "Total Spending");
                 viewFile("userdata.txt");
-
                 break;
-            case (2):
+            case ("2"):
                 deleteElement("userdata.txt");
                 break;
-            case 3:
+            case ("3"):
                 adminModify();
             default:
                 System.out.println("Invalid input, try again");
-
                 adminsite.viewMembersInformation();
         }
+        System.out.println("Would you like to continue with the selection? Press 5 to end if you would like to stop");
+        adminsite.adminModify();
     }
     public static void viewFile(String filename) throws Exception {
         try {
