@@ -36,6 +36,8 @@ public class adminsite {
                 break;
             case("5"):
                 totalIncome();
+                System.out.println("------------------------");
+                adminModify();
                 break;
             default:
                 System.out.println("Invalid input, try again");
@@ -45,7 +47,7 @@ public class adminsite {
     }
     public static void totalIncome()
     {
-       double sumCol=0;
+       long sumCol=0;
         BufferedReader reader;
         try {
 
