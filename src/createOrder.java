@@ -262,7 +262,7 @@ public class createOrder {
                         //write new order into file
                         Order newOrder = new Order(orderID, userId, firstName, lastName, address, phone, status, "Waiting", cart);
                         order.add(newOrder);
-                        oos = new ObjectOutputStream(new FileOutputStream(orderFile, true));
+                        oos = new ObjectOutputStream(new FileOutputStream(orderFile));
                         oos.writeObject(order);
                         oos.close();
                         //update total spending
