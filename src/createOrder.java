@@ -129,6 +129,9 @@ public class createOrder {
                         System.out.println("Cart is empty! Cannot generate your order request!");
                     }
                     else {
+                        ois = new ObjectInputStream(new FileInputStream(orderFile));
+                        order = (ArrayList<Order>) ois.readObject();
+                        ois.close();
                         //String email = login.userEmail;
                         String email = "abc@abc.com";
                         String line;
