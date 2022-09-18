@@ -40,7 +40,7 @@ public class Main {
                     MemberLogin.memberLogin();
                     break;
                 case 3:
-                    RegisterDemo.registerMember();
+                    userRegister.registerMember();
                     break;
                 case 4:
                     loginAsAdmin.admLogin();
