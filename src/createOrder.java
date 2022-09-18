@@ -300,7 +300,7 @@ public class createOrder {
                     break;
                 default:
                     if (option != 0) {
-                        System.out.println("Option not available.");
+                        System.out.println("Option " + option +  " not available.");
                     }
                     break;
             }
