@@ -9,7 +9,7 @@ public class MemberLogin {
         System.out.println("Enter email");
         Scanner scanner = new Scanner(System.in);
         lg.setUserEmail(scanner.nextLine());
-        lg.setUserEmail(RegisterDemo.checkEmailSyntax(lg.getUserEmail()));
+        lg.setUserEmail(userRegister.checkEmailSyntax(lg.getUserEmail()));
 
         System.out.println("Enter password");
         lg.setUserPassword(scanner.nextLine());
