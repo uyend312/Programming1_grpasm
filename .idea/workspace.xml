@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7f88acf8-d63a-4fa4-bea9-da99b818d861" name="Changes" comment="update phone and number into user data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order.txt" beforeDir="false" afterPath="$PROJECT_DIR$/order.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/createOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/createOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userdata.txt" beforeDir="false" afterPath="$PROJECT_DIR$/userdata.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adminsite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminsite.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
