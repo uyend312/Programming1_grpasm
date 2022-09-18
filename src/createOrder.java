@@ -29,11 +29,11 @@ public class createOrder {
             ois1.close();
 
         }
-        if (orderFile.isFile()) {
-            ois2 = new ObjectInputStream(new FileInputStream(orderFile));
-            order = (ArrayList<Order>) ois2.readObject();
-            ois2.close();
-        }
+//        if (orderFile.isFile()) {
+//            ois2 = new ObjectInputStream(new FileInputStream(orderFile));
+//            order = (ArrayList<Order>) ois2.readObject();
+//            ois2.close();
+//        }
 
         do {
             System.out.println("ENTER A NUMBER 1-9.\n");
@@ -63,44 +63,44 @@ public class createOrder {
                     myaccount.userAccount(login.userEmail);
                     break;
                 case 2:
-                    if (orderFile.isFile()) {
-                        //find user ID to print orders having that ID
-                        String email = login.userEmail;
-                        //String email = "asfasf@ahfa.com";
-                        String line;
-                        String[] data;
-                        String userId = null;
-
-                        FileReader fr = new FileReader("userdata.txt");
-                        BufferedReader br = new BufferedReader(fr);
-                        // get user ID
-                        while ((line = br.readLine()) != null) {
-                            data = line.split(";");
-                            if (email.equals(data[3])) {
-                                userId = data[0];
-                            }
-                        }
-
-                        //find Order that contains userId and display it
-                        Order ord;
-                        found = false;
-                        ListIterator<Order> orderListIterator = order.listIterator();
-                        while (orderListIterator.hasNext()) {
-
-                            ord = orderListIterator.next();
-                            System.out.println(ord);
-                            if ((ord.getOrderID()).equals(userId)) {
-                                System.out.println(ord);
-                                found = true;
-                            }
-                        }
-                        if (!found) {
-                            System.out.println("Your order history is empty...");
-                        }
-                    }
-                    else {
-                        System.out.println("Order list file Not Found...!!!");
-                    }
+//                    if (orderFile.isFile()) {
+//                        //find user ID to print orders having that ID
+//                        String email = login.userEmail;
+//                        //String email = "asfasf@ahfa.com";
+//                        String line;
+//                        String[] data;
+//                        String userId = null;
+//
+//                        FileReader fr = new FileReader("userdata.txt");
+//                        BufferedReader br = new BufferedReader(fr);
+//                        // get user ID
+//                        while ((line = br.readLine()) != null) {
+//                            data = line.split(";");
+//                            if (email.equals(data[3])) {
+//                                userId = data[0];
+//                            }
+//                        }
+//
+//                        //find Order that contains userId and display it
+//                        Order ord;
+//                        found = false;
+//                        ListIterator<Order> orderListIterator = order.listIterator();
+//                        while (orderListIterator.hasNext()) {
+//
+//                            ord = orderListIterator.next();
+//                            System.out.println(ord);
+//                            if ((ord.getOrderID()).equals(userId)) {
+//                                System.out.println(ord);
+//                                found = true;
+//                            }
+//                        }
+//                        if (!found) {
+//                            System.out.println("Your order history is empty...");
+//                        }
+//                    }
+//                    else {
+//                        System.out.println("Order list file Not Found...!!!");
+//                    }
                     break;
                 case 3:
                     if (file.isFile()) {
@@ -184,14 +184,10 @@ public class createOrder {
                     }
                     else {
 
-                        ois1 = new ObjectInputStream(new FileInputStream(orderFile));
-                        order = (ArrayList<Order>) ois1.readObject();
-                        ois1.close();
-                        //String email = login.userEmail;
-                        String email = "abc@abc.com";
-
-//                        String email = login.userEmail;
-                        //String email = "asfasf@ahfa.com";
+//                        ois1 = new ObjectInputStream(new FileInputStream(orderFile));
+//                        order = (ArrayList<Order>) ois1.readObject();
+//                        ois1.close();
+                        String email = login.userEmail;
                         String line;
                         String[] data;
                         String userId = null;

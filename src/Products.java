@@ -1,7 +1,6 @@
 import java.io.*;
 
 public class Products implements Serializable{
-
     private String id;
     private String category;
     private String name;
