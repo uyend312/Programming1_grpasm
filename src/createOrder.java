@@ -296,6 +296,7 @@ public class createOrder {
                     break;
                 case 9:
                     login.userEmail = null;
+                    System.out.println("Log out successfully!");
                     Main.mainPage();
                     break;
                 default:
