@@ -6,9 +6,9 @@ import static java.lang.System.exit;
 public class adminsite {
     public static void adminModify() throws Exception {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Select 1 to view information of products\nSelect 2 to view information of orders\n" +
-                "Select 3 to view information of members\nSelect 4 to log out admin\nSelect 5 to see income\nSelect 6 to " +
-                "end");
+        System.out.println("Select 1 to view information of products.\nSelect 2 to view information of orders.\n" +
+                "Select 3 to view information of members.\nSelect 4 to log out admin.\nSelect 5 to see income.\nSelect 6 to " +
+                "end.");
         String admSelect = sc.next();
         while (!admSelect.matches("[1-6]"))
         { System.out.println("Invalid input, try again");
@@ -17,7 +17,7 @@ public class adminsite {
         switch (admSelect) {
             case ("1"):
                 try {
-                    ProductsDemo.ProductsDemo();
+                    ProductsAdmin.ProductsAdmin();
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -74,7 +74,7 @@ public class adminsite {
         ObjectOutputStream oos;
         ObjectInputStream ois;
         ListIterator<Order> li;
-        System.out.println("Select 1 to view order and 2 to update order status");
+        System.out.println("Select 1 to view order.\nSelect 2 to update order status.");
 
         String choice = sc1.next();
         //check input
@@ -151,8 +151,8 @@ public class adminsite {
 
     public static void viewMembersInformation() throws Exception {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Select 1 to view members information \nSelect 2 to delete members\nSelect 3 to go back" +
-                "to the main selection");
+        System.out.println("Select 1 to view members information.\nSelect 2 to delete members.\nSelect 3 to go back " +
+                "to the main selection.");
         String a = sc.next();
         while (!a.matches("[1-3]")){
             System.out.println("Invalid input, try again");
@@ -172,7 +172,7 @@ public class adminsite {
                 System.out.println("Invalid input, try again");
                 adminsite.viewMembersInformation();
         }
-        System.out.println("Would you like to continue with the selection? Press 6 to end if you would like to stop");
+        System.out.println("Would you like to continue with the selection? Press 6 to end if you would like to stop.");
         adminsite.adminModify();
     }
     public static void viewFile(String filename) throws Exception {
@@ -192,11 +192,11 @@ public class adminsite {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Would you like to continue with the selection? Press 6 to end if you would like to stop");
+        System.out.println("Would you like to continue with the selection? Press 6 to end if you would like to stop.");
         adminsite.adminModify();
     }
     public static void deleteElement(String filename) throws Exception {
-        System.out.println("Enter the ID to search");
+        System.out.println("Enter the ID to search: ");
         Scanner sc = new Scanner(System.in);
         String id = sc.nextLine();
         File oldfile = new File("userdata.txt");
@@ -236,7 +236,7 @@ public class adminsite {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Would you like to continue with the selection? Press 6 to end if you would like to stop");
+        System.out.println("Would you like to continue with the selection? Press 6 to end if you would like to stop.");
         adminsite.adminModify();
     }
 }

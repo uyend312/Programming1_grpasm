@@ -3,7 +3,7 @@ import java.util.*;
 
 public class ProductsAdmin{
 
-    public static void ProductsDemo() throws Exception {
+    public static void ProductsAdmin() throws Exception {
         int option;
         //s is used for Integer and s1 is for String data
         Scanner s = new Scanner(System.in);
@@ -315,6 +315,6 @@ public class ProductsAdmin{
         return uuid.toString();
     }
     public static void main(String[] args) throws Exception{
-        ProductsDemo();
+        ProductsAdmin();
     }
 }
