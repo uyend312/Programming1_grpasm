@@ -3,7 +3,7 @@ import java.lang.reflect.Member;
 import java.util.Scanner;
 import java.util.UUID;
 
-public class RegisterDemo {
+public class userRegister {
     public static void registerMember() throws Exception {
 
         register rgs = new register();
