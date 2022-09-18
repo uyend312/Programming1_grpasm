@@ -17,7 +17,7 @@ public class adminsite {
         switch (admSelect) {
             case ("1"):
                 try {
-                    ProductsDemo.ProductsDemo();
+                    ProductsAdmin.ProductsDemo();
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
