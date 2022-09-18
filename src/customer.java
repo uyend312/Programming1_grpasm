@@ -97,7 +97,7 @@ public class customer {
                                 MemberLogin.memberLogin();
                                 break;
                             case 2:
-                                RegisterDemo.registerMember();
+                                userRegister.registerMember();
                                 break;
                             case 3:
                                 break;
