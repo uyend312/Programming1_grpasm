@@ -59,14 +59,6 @@ public class ProductsAdmin{
 
                         System.out.print("Enter product category: ");
                         String category = s1.next();
-
-                        System.out.print("Enter quantity: ");
-                        while (!s.hasNextInt()) {
-                            System.out.println("INVALID INPUT!\nPlease enter a number: ");
-
-                            s.next();
-                        }
-                        int quantity = s.nextInt();
                         System.out.print("Enter product price: ");
                         while (!s.hasNextDouble()) {
                             System.out.println("INVALID INPUT!\nPlease enter a number: ");
@@ -75,7 +67,7 @@ public class ProductsAdmin{
                         }
                         double price = s.nextDouble();
                         String id = generateUUID();
-                        Products products = new Products(id, category, name, quantity, price);
+                        Products products = new Products(id, category, name, price);
                         al.add(products);
                         System.out.println();
                     }
@@ -119,11 +111,9 @@ public class ProductsAdmin{
                                 String category = s1.next();
                                 System.out.println("Enter new product name: ");
                                 String name = s1.next();
-                                System.out.print("Enter new product quantity: ");
-                                int quantity = s.nextInt();
                                 System.out.print("Enter new product price: ");
                                 double price = s.nextDouble();
-                                li.set(new Products(id, category, name, quantity, price));
+                                li.set(new Products(id, category, name, price));
                                 found = true;
                             }
                         }
@@ -234,59 +224,6 @@ public class ProductsAdmin{
                             public int compare(Products p1, Products p2) {
 
                                 return (int) (p1.getPrice()- p2.getPrice());
-                            }
-                        });
-                        //This block of code will write the sorted data into file
-                        oos = new ObjectOutputStream(new FileOutputStream(file));
-                        oos.writeObject(al);
-                        oos.close();
-
-                        System.out.println("_________________________________________________");
-                        //use ListIterator to iterate through the file
-                        li = al.listIterator();
-                        while (li.hasNext())
-                            System.out.println(li.next());
-                        System.out.println("_________________________________________________");
-                    } else {
-                        System.out.println("File Not Found...!!!");
-                    }
-                    break;
-
-                case 8:
-                    if (file.isFile()) {
-                        ois = new ObjectInputStream(new FileInputStream(file));
-                        al = (ArrayList<Products>) ois.readObject();
-                        ois.close();
-
-                        Collections.sort(al, new Comparator<Products>() {
-                            @Override
-                            public int compare(Products p1, Products p2) {
-
-                                return p1.getQuantity()- p2.getQuantity();
-                            }
-                        });
-
-                        System.out.println("_________________________________________________");
-                        //use ListIterator to iterate through the file
-                        li = al.listIterator();
-                        while (li.hasNext())
-                            System.out.println(li.next());
-                        System.out.println("_________________________________________________");
-                    } else {
-                        System.out.println("File Not Found...!!!");
-                    }
-                    break;
-                case 9:
-                    if (file.isFile()) {
-                        ois = new ObjectInputStream(new FileInputStream(file));
-                        al = (ArrayList<Products>) ois.readObject();
-                        ois.close();
-
-                        Collections.sort(al, new Comparator<Products>() {
-                            @Override
-                            public int compare(Products p1, Products p2) {
-
-                                return p1.getQuantity()- p2.getQuantity();
                             }
                         });
                         //This block of code will write the sorted data into file
