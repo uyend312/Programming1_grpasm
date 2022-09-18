@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class ProductsDemo{
+public class ProductsAdmin{
 
     public static void ProductsDemo() throws Exception {
         int option;
