@@ -37,9 +37,8 @@ public class ProductsAdmin{
             System.out.println("5. DELETE PRODUCTS");
             System.out.println("6. SORT PRODUCTS BY PRICE (Ascending)- On Screen only");
             System.out.println("7. SORT PRODUCTS BY PRICE (Ascending)- In file");
-            System.out.println("8. SORT PRODUCTS BY QUANTITY (Ascending)- On Screen only");
-            System.out.println("9. SORT PRODUCTS BY QUANTITY (Ascending)- In file");
-            System.out.println("0. EXIT TO PREVIOUS PAGE");
+            System.out.println("8. RETURN TO PREVIOUS PAGE");
+            System.out.println("0. EXIT");
             System.out.println("Enter your option: ");
             //validate integer input so that program not crash
             while (!s.hasNextInt()) {
@@ -241,9 +240,13 @@ public class ProductsAdmin{
                         System.out.println("File Not Found...!!!");
                     }
                     break;
-                case 0:
+                case 8:
                     adminsite.adminModify();
                     break;
+                default:
+                    if (option != 0) {
+                        System.out.println("Option " + option + " not available.");
+                    }
             }
         } while (option!=0);
     }

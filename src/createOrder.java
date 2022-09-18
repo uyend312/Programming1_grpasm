@@ -3,6 +3,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
+import static java.lang.System.exit;
+
 public class createOrder {
     public static void createOrder() throws Exception {
         int option;
@@ -29,80 +31,37 @@ public class createOrder {
             ois1.close();
 
         }
-//        if (orderFile.isFile()) {
-//            ois2 = new ObjectInputStream(new FileInputStream(orderFile));
-//            order = (ArrayList<Order>) ois2.readObject();
-//            ois2.close();
-//        }
+        if (orderFile.isFile()) {
+            ois2 = new ObjectInputStream(new FileInputStream(orderFile));
+            order = (ArrayList<Order>) ois2.readObject();
+            ois2.close();
+        }
 
         do {
             System.out.println("ENTER A NUMBER 1-9.\n");
-            System.out.println("1. DISPLAY ACCOUNT INFORMATION");
-            System.out.println("2. VIEW ORDER HISTORY");
-            System.out.println("3. DISPLAY ALL AVAILABLE PRODUCTS");
+            System.out.println("1. DISPLAY ALL AVAILABLE PRODUCTS");
+            System.out.println("2. SEARCH AVAILABLE PRODUCTS (BY CATEGORY)");
+            System.out.println("3. SORT PRODUCTS BY PRICE (Ascending)");
             System.out.println("4. ADD A PRODUCT TO CART");
             System.out.println("5. DELETE A PRODUCT IN CART");
-            System.out.println("6. SEARCH AVAILABLE PRODUCTS (BY CATEGORY)");
-            System.out.println("7. VIEW CART");
-            System.out.println("8. PLACE ORDER AND CHECKOUT");
-            System.out.println("9. LOG OUT");
+            System.out.println("6. VIEW CART");
+            System.out.println("7. DISPLAY ACCOUNT INFORMATION");
+            System.out.println("8. VIEW ORDER HISTORY");
+            System.out.println("9. PLACE ORDER AND CHECKOUT");
+            System.out.println("10. LOG OUT");
             System.out.println("0. EXIT");
             System.out.println("Enter your option: ");
 
-            //validate input must be integer in range 0-5
+            //validate input must be integer
             while (!s.hasNextInt()) {
-                System.out.println("INVALID INPUT!\nChoose an option 1-9, or 0 to end program: ");
+                System.out.println("INVALID INPUT!\nChoose an option 1-10, or 0 to end program: ");
                 s.next(); // this is important!
-
             }
 
             option = s.nextInt();
             System.out.println("_________________________________________________");
             switch (option) {
                 case 1:
-                    myaccount.userAccount(login.userEmail);
-                    break;
-                case 2:
-//                    if (orderFile.isFile()) {
-//                        //find user ID to print orders having that ID
-//                        String email = login.userEmail;
-//                        //String email = "asfasf@ahfa.com";
-//                        String line;
-//                        String[] data;
-//                        String userId = null;
-//
-//                        FileReader fr = new FileReader("userdata.txt");
-//                        BufferedReader br = new BufferedReader(fr);
-//                        // get user ID
-//                        while ((line = br.readLine()) != null) {
-//                            data = line.split(";");
-//                            if (email.equals(data[3])) {
-//                                userId = data[0];
-//                            }
-//                        }
-//
-//                        //find Order that contains userId and display it
-//                        Order ord;
-//                        found = false;
-//                        ListIterator<Order> orderListIterator = order.listIterator();
-//                        while (orderListIterator.hasNext()) {
-//
-//                            ord = orderListIterator.next();
-//                            System.out.println(ord);
-//                            if ((ord.getOrderID()).equals(userId)) {
-//                                System.out.println(ord);
-//                                found = true;
-//                            }
-//                        }
-//                        if (!found) {
-//                            System.out.println("Your order history is empty...");
-//                        }
-//                    }
-//                    else {
-//                        System.out.println("Order list file Not Found...!!!");
-//                    }
-                    break;
-                case 3:
                     if (file.isFile()) {
                         //use ListIterator to iterate through the file
                         li = productList.listIterator();
@@ -111,6 +70,37 @@ public class createOrder {
                         System.out.println("_________________________________________________");
                     } else {
                         System.out.println("Product list file Not Found...!!!");
+                    }
+                    break;
+                case 2:
+                    if (file.isFile()) {
+                        System.out.println("Enter Category to Search:");
+                        category = s1.next();
+                        li = productList.listIterator();
+                        while (li.hasNext()) {
+                            Products p = li.next();
+                            if ((p.getCategory()).equals(category.toLowerCase())) {
+                                System.out.println(p);
+                                found = true;
+                            }
+                        }
+                        if (!found)
+                            System.out.println("Category Not Found!");
+                        System.out.println("_________________________________________________");
+                    } else {
+                        System.out.println("Product list file Not Found...!!!");
+                    }
+                    break;
+                case 3:
+                    if (file.isFile()) {
+                        productList.sort((p1, p2) -> (int) (p1.getPrice() - p2.getPrice()));
+                        //use ListIterator to iterate through the file
+                        li = productList.listIterator();
+                        while (li.hasNext())
+                            System.out.println(li.next());
+                        System.out.println("_________________________________________________");
+                    } else {
+                        System.out.println("File Not Found...!!!");
                     }
                     break;
                 case 4:
@@ -136,13 +126,20 @@ public class createOrder {
                     }
                     break;
                 case 5:
-                    System.out.print("Enter the Product name to Delete: ");
-                    String name = s1.next();
-                    for (Products c : cart) {
-                        if ((c.getName()).equals(name.toLowerCase())) {
-                            cart.remove(c);
-                            System.out.println("Product removed.");
-                            found = true;
+                    if (cart.isEmpty()) {
+                        System.out.println("Cart empty,");
+                    }
+                    else {
+                        System.out.print("Enter the Product name to Delete: ");
+                        String name = s1.next();
+                        found = false;
+                        for (Products c : cart) {
+                            if ((c.getName()).equals(name.toLowerCase())) {
+                                cart.remove(c);
+                                System.out.println("Product removed.");
+                                found = true;
+                                break;
+                            }
                         }
                     }
                     if (!found) {
@@ -151,25 +148,6 @@ public class createOrder {
                     System.out.println("_________________________________________________");
                     break;
                 case 6:
-                    if (file.isFile()) {
-                        System.out.println("Enter Category to Search:");
-                        category = s1.next();
-                        li = productList.listIterator();
-                        while (li.hasNext()) {
-                            Products p = li.next();
-                            if ((p.getCategory()).equals(category.toLowerCase())) {
-                                System.out.println(p);
-                                found = true;
-                            }
-                        }
-                        if (!found)
-                            System.out.println("Category Not Found!");
-                        System.out.println("_________________________________________________");
-                    } else {
-                        System.out.println("Product list file Not Found...!!!");
-                    }
-                    break;
-                case 7:
                     if (cart.isEmpty()) {
                         System.out.println("Cart empty.");
                     }
@@ -177,16 +155,56 @@ public class createOrder {
                         System.out.println(c);
                     }
                     System.out.println("_________________________________________________");
+
+                    break;
+                case 7:
+                    myaccount.userAccount(login.userEmail);
                     break;
                 case 8:
+                    if (orderFile.isFile()) {
+                        //find user ID to print orders having that ID
+                        String email = login.userEmail;
+                        //String email = "asfasf@ahfa.com";
+                        String line;
+                        String[] data;
+                        String userId = null;
+
+                        FileReader fr = new FileReader("userdata.txt");
+                        BufferedReader br = new BufferedReader(fr);
+                        // get user ID
+                        while ((line = br.readLine()) != null) {
+                            data = line.split(";");
+                            if (email.equals(data[3])) {
+                                userId = data[0];
+                            }
+                        }
+
+                        //find Order that contains userId and display it
+                        Order ord;
+                        found = false;
+                        ListIterator<Order> orderListIterator = order.listIterator();
+                        while (orderListIterator.hasNext()) {
+                            ord = orderListIterator.next();
+
+                            if ((ord.getUserId()).equals(userId)) {
+                                System.out.println(ord);
+                                found = true;
+                            }
+                        }
+                        if (!found) {
+                            System.out.println("Your order history is empty...");
+                        }
+                    }
+                    else {
+                        System.out.println("Order list file Not Found...!!!");
+                    }
+
+                    break;
+                case 9:
                     if (cart.isEmpty()) {
                         System.out.println("Cart is empty! Cannot generate your order request!");
                     }
                     else {
-
-//                        ois1 = new ObjectInputStream(new FileInputStream(orderFile));
-//                        order = (ArrayList<Order>) ois1.readObject();
-//                        ois1.close();
                         String email = login.userEmail;
                         String line;
                         String[] data;
@@ -288,9 +306,9 @@ public class createOrder {
                         FileWriter writer = new FileWriter("userdata.txt");
                         writer.append(fileContents);
                         writer.flush();
-                    }
+                    };
                     break;
-                case 9:
+                case 10:
                     login.userEmail = null;
                     System.out.println("Log out successfully!");
                     Main.mainPage();
@@ -302,14 +320,14 @@ public class createOrder {
                     break;
             }
         } while (option != 0);
+        if (option == 0)
+            exit(0);
     }
-
 
     public static String generateUUID() {
         UUID uuid = UUID.randomUUID();
         return uuid.toString();
     }
-
     public static void main(String[] args) throws Exception {
         createOrder();
     }

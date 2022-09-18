@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+import static java.lang.System.exit;
+
 public class customer {
     public static void customer() throws Exception {
         int option;
@@ -22,13 +24,18 @@ public class customer {
         }
 
         do {
-
             System.out.println("1. VIEW ALL AVAILABLE PRODUCTS");
             System.out.println("2. SEARCH PRODUCTS (BY CATEGORY)");
             System.out.println("3. SORT PRODUCTS BY PRICE (Ascending)");
             System.out.println("4. ADD A PRODUCT TO CART");
             System.out.println("0. EXIT");
             System.out.println("Enter your option: ");
+
+            //validate input must be integer
+            while (!s.hasNextInt()) {
+                System.out.println("INVALID INPUT!\nChoose an option 1-4, or 0 to end program: ");
+                s.next(); // this is important!
+            }
             option = s.nextInt();
             System.out.println("_________________________________________________");
             switch (option) {
@@ -99,14 +106,18 @@ public class customer {
                             case 2:
                                 userRegister.registerMember();
                                 break;
-                            case 3:
-                                break;
                             default:
-                                System.out.println("Invalid input " + userChoice);
-                        }
+                                if (userChoice != 3) {
+                                    System.out.println("Invalid input " + userChoice);
+                                    break;
+                                }
+                        } while (userChoice != 3);
                     }
+                    break;
+                case 0:
+                    exit(0);
             }
-        } while (option != 0);
+        } while (true);
     }
 
     public static void main(String[] args) throws Exception {
