@@ -172,6 +172,7 @@ public class adminsite {
                 System.out.println("Invalid input, try again");
                 adminsite.viewMembersInformation();
         }
+        System.out.println("----------------------------------------------------------------------------------------------");
         System.out.println("Would you like to continue with the selection? Press 6 to end if you would like to stop.");
         adminsite.adminModify();
     }
@@ -236,6 +237,7 @@ public class adminsite {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("---------------------------------------------------------------------------------------------");
         System.out.println("Would you like to continue with the selection? Press 6 to end if you would like to stop.");
         adminsite.adminModify();
     }
